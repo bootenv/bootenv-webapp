@@ -1,4 +1,4 @@
-# Bootenv-webapp
+# Bootenv-webapp [![Build Status](https://travis-ci.org/bootenv/bootenv-webapp.svg)](https://travis-ci.org/bootenv/bootenv-webapp)
 
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
