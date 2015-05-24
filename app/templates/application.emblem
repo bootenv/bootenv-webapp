@@ -1,3 +1,15 @@
-h2#title Welcome to bootenv
+.wrapper
+    partial "partials/application-header"
+    partial "partials/application-sidebar-left"
 
-outlet
+    .content-wrapper
+        section.content-header
+          h1 Page Header <small>Optional description</small>
+          ol.breadcrumb
+            li: a href="#" <i class="fa fa-dashboard"/> Level
+            li.active Here
+        section.content
+            outlet
+
+    partial "partials/application-footer"
+    partial "partials/application-sidebar-right"
