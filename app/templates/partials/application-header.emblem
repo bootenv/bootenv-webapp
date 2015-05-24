@@ -3,9 +3,9 @@ header.main-header
   / Logo
   a.logo href="index2.html"
     / mini logo for sidebar mini 50x50 pixels
-    span.logo-mini &gt;b<b>e</b>
+    span.logo-mini: img src="assets/images/logo-square-transparent.png" style="height: 50px"
     / logo for regular state and mobile devices
-    span.logo-lg &gt;boot<b>env</b>
+    span.logo-lg: img src="assets/images/logo-dark-transparent.png" style="height: 50px"
 
   / Header Navbar
   nav.navbar.navbar-static-top role="navigation"

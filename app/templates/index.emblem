@@ -1,0 +1,3 @@
+ul
+ li: link-to "login" | Login
+ li: link-to "dashboard" | Dashboard

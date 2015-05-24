@@ -1,0 +1,8 @@
+partial "partials/application-header"
+partial "partials/application-sidebar-left"
+
+.content-wrapper
+    outlet
+
+partial "partials/application-footer"
+partial "partials/application-sidebar-right"

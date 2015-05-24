@@ -17,8 +17,8 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-//app.import('bower_components/admin-lte/dist/js/app.js');
+app.import('bower_components/admin-lte/dist/js/app.js');
 app.import('bower_components/admin-lte/dist/css/AdminLTE.css');
-app.import('bower_components/admin-lte/dist/css/skins/skin-black.css');
+app.import('bower_components/admin-lte/dist/css/skins/skin-green.css');
 
 module.exports = app.toTree();

@@ -1,0 +1,65 @@
+.login-page, .register-page {
+  background: #000 url(images/bgnoise.png);
+}
+
+.skin-green {
+  .main-header {
+    .navbar-toggle {
+      color: #eee;
+    }
+    .navbar-brand {
+      color: #eee;
+      border-right: 1px solid #333;
+    }
+    > .navbar {
+      background-color: #000000;
+      .nav {
+        > li > a {
+          color: #cccccc;
+          border-right: 1px solid #333;
+        }
+        > li > a:hover, > li > a:active, > li > a:focus,
+        .open > a, .open > a:hover, .open > a:focus {
+          background: #333333;
+          color: #999999;
+        }
+      }
+      > .sidebar-toggle {
+        color: #eee;
+        border-right: 1px solid #333;
+        text-decoration: none;
+        &:hover {
+          color: #999999;
+          background: #333333;
+        }
+      }
+      .navbar-nav {
+        > li > a {
+          border-right: 1px solid #333;
+        }
+        .user-menu > .dropdown-menu {
+          padding: 0;
+        }
+      }
+      .navbar-custom-menu .navbar-nav > li > a,
+      .navbar-right > li > a {
+        border-left: 1px solid #333;
+      }
+    }
+    > .logo {
+      background-color: #000000;
+      color: #cccccc;
+      border-right: 1px solid #333;
+      &:hover {
+        background-color: #030303;
+      }
+      @media (max-width: 767px) {
+          background-color: #333333;
+          color: #cccccc;
+        &:hover {
+          background-color: #303030;
+        }
+      }
+    }
+  }
+}
