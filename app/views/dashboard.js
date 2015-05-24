@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 // Copied verbatim from admin-lte's app.js
 function init() {
+    /* jshint ignore:start */
     //Easy access to options
     var o = $.AdminLTE.options;
 
@@ -68,6 +69,7 @@ function init() {
         });
 
     });
+    /* jshint ignore:end */
 }
 
 export default Ember.View.extend({
