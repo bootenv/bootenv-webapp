@@ -24,9 +24,9 @@
       a.btn.btn-block.btn-social.btn-github.btn-flat href="dashboard"
         i.fa.fa-github
         | Sign in using GitHub
-      a.btn.btn-block.btn-social.btn-facebook.btn-flat href="dashboard"
+      a.btn.btn-block.btn-social.btn-twitter.btn-flat href="dashboard"
         i.fa.fa-facebook
-        | Sign in using Facebook
+        | Sign in using Twitter
       a.btn.btn-block.btn-social.btn-google-plus.btn-flat href="dashboard"
         i.fa.fa-google-plus
         | Sign in using Google+

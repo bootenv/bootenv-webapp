@@ -11,7 +11,7 @@ aside.main-sidebar
       .pull-left.info
         p César Izurieta
         / Status
-        a href="#" <i class="fa fa-circle text-success"></i> Online
+        a href="#" <i class="fa fa-circle text-success"></i> Active
 
     / search form (Optional)
     form.sidebar-form action="#" method="get"
@@ -22,12 +22,14 @@ aside.main-sidebar
 
     / Sidebar Menu
     ul.sidebar-menu
-      li.header HEADER
+      li.active: link-to "dashboard"
+        i.fa.fa-list
+        span All projects
+      li.header FAVORITES
       / Optionally, you can add icons to the links
-      li.active: a href="#" <i class='fa fa-link'></i> <span>Link</span>
-      li: a href="#" <i class='fa fa-link'></i> <span>Another Link</span>
-      li.treeview
-        a href="#" <i class='fa fa-link'></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i>
-        ul.treeview-menu
-          li: a href="#" Link in level 2
-          li: a href="#" Link in level 2
+      li: a href="#"
+        i.fa.fa-link
+        span project-1
+      li: a href="#"
+        i.fa.fa-link
+        span project-2

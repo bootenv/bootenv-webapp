@@ -2,6 +2,10 @@
   background: #000 url(images/bgnoise.png);
 }
 
+.control-sidebar-tabs > li > a:hover {
+  border-top: 1px solid transparent;
+}
+
 .skin-green {
   .main-header {
     .navbar-toggle {
@@ -54,8 +58,8 @@
         background-color: #030303;
       }
       @media (max-width: 767px) {
-          background-color: #333333;
-          color: #cccccc;
+        background-color: #333333;
+        color: #cccccc;
         &:hover {
           background-color: #303030;
         }

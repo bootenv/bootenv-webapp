@@ -81,33 +81,33 @@ header.main-header
               a href="#" View all tasks
 
         / User Account Menu
-        li class="dropdown user user-menu"
+        li.dropdown.user.user-menu
           / Menu Toggle Button
-          a href="#" class="dropdown-toggle" data-toggle="dropdown"
+          a.dropdown-toggle href="#" data-toggle="dropdown"
             / The user image in the navbar
             gravatar-image email="cesar@caih.org" class="user-image" alt="User Image"
             / hidden-xs hides the username on small devices so only the image appears.
-            span class="hidden-xs" César Izurieta
-          ul class="dropdown-menu"
+            span.hidden-xs César Izurieta
+          ul.dropdown-menu
             / The user image in the menu
-            li class="user-header"
+            li.user-header
               gravatar-image email="cesar@caih.org" class="img-circle" alt="User Image"
               p
                 | César Izurieta
                 small Member since Nov. 2012
             / Menu Body
-            li class="user-body"
-              div class="col-xs-4 text-center"
-                a href="#" Followers
-              div class="col-xs-4 text-center"
-                a href="#" Sales
-              div class="col-xs-4 text-center"
+            li.user-body
+              .col-xs-4.text-center
+                a href="#" Accounts
+              .col-xs-4.text-center
+                a href="#" Security
+              .col-xs-4.text-center
                 a href="#" Friends
             / Menu Footer
-            li class="user-footer"
-              div class="pull-left"
+            li.user-footer
+              .pull-left
                 a href="#" class="btn btn-default btn-flat" Profile
-              div class="pull-right"
+              .pull-right
                 a href="#" class="btn btn-default btn-flat" Sign out
 
         / Control Sidebar Toggle Button

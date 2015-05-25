@@ -2,7 +2,15 @@
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-var app = new EmberApp();
+var app = new EmberApp({
+  favicon: {
+    settings: {
+      appName: "bootenv",
+      background: "#000000",
+      silhouette: true
+    }
+  }
+});
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
