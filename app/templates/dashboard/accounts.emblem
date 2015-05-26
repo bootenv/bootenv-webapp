@@ -1,5 +1,5 @@
 section.content-header
-  h1 Dashboard <small>a list of the projects you have access to</small>
+  h1 Accounts <small>a list of the accounts you have access to</small>
   ol.breadcrumb
     li: link-to "dashboard" <i class="fa fa-dashboard"/> Dashboard
     li.active All projects
@@ -10,7 +10,7 @@ section.content
       .box
         .box-header
           h3.box-title
-            | Projects &nbsp;
+            | Accounts &nbsp;
             link-to "dashboard" class="btn btn-xs btn-flat bg-olive"
               i.fa.fa-plus
           .box-tools
@@ -22,19 +22,14 @@ section.content
           table.table.table-hover.table-striped
             tbody
                 tr
-                  th Account
                   th Name
                   th Description
-                  th Environments
-                each project in model
+                  th
+                each account in model
                   tr
-                    td: link-to "dashboard.account.index" project.account
-                      project.account.name
-                    td: link-to "dashboard.account.project.index" project
-                      project.name
-                    td = project.description
-                    td
-                      span.label.label-success prod
-                      span.label.label-warning stage
-                      span.label.label-primary ci
-                      span.label.label-danger dev
+                    td: link-to 'dashboard.account.index' account
+                      = account.name
+                    td = account.description
+                    td: link-to 'dashboard.account.edit' account
+                      i.fa.fa-pencil
+                      |  Edit

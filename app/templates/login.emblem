@@ -4,7 +4,7 @@
         img src="assets/images/logo-dark-transparent.png" style="max-width: 350px"
   .login-box-body
     p.login-box-msg  Sign in to start your session
-    form action="dashboard" method="get"
+    form submit="login"
       .form-group.has-feedback
         input.form-control type="email"  placeholder="Email"
         span.glyphicon.glyphicon-envelope.form-control-feedback
@@ -21,13 +21,13 @@
 
     .social-auth-links.text-center
       p - OR -
-      a.btn.btn-block.btn-social.btn-github.btn-flat href="dashboard"
+      a.btn.btn-block.btn-social.btn-github.btn-flat href="/"
         i.fa.fa-github
         | Sign in using GitHub
-      a.btn.btn-block.btn-social.btn-twitter.btn-flat href="dashboard"
+      a.btn.btn-block.btn-social.btn-twitter.btn-flat href="/"
         i.fa.fa-facebook
         | Sign in using Twitter
-      a.btn.btn-block.btn-social.btn-google-plus.btn-flat href="dashboard"
+      a.btn.btn-block.btn-social.btn-google-plus.btn-flat href="/"
         i.fa.fa-google-plus
         | Sign in using Google+
 

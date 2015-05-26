@@ -22,9 +22,12 @@ aside.main-sidebar
 
     / Sidebar Menu
     ul.sidebar-menu
-      li.active: link-to "dashboard"
-        i.fa.fa-list
-        span All projects
+      active-link: link-to "dashboard.index"
+        i.fa.fa-tachometer
+        span Dashboard
+      active-link: link-to "dashboard.accounts.index"
+        i.fa.fa-users
+        span Accounts
       li.header FAVORITES
       / Optionally, you can add icons to the links
       li: a href="#"

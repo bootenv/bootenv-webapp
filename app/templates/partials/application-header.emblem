@@ -108,7 +108,7 @@ header.main-header
               .pull-left
                 a href="#" class="btn btn-default btn-flat" Profile
               .pull-right
-                a href="#" class="btn btn-default btn-flat" Sign out
+                link-to "login" class="btn btn-default btn-flat" | Sign out
 
         / Control Sidebar Toggle Button
         li: a href="#" data-toggle="control-sidebar"

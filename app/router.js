@@ -7,8 +7,23 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('login');
-  this.resource('dashboard', function() {
+  this.route('signup');
 
+  this.route('dashboard', {path: '/'}, function() {
+    this.route('accounts', function() {
+    });
+
+    this.route('account', {path: ":account_name"}, function() {
+      this.route('edit');
+
+      this.route('project', {path: ":project_name"}, function() {
+        this.route('edit');
+
+        this.route('environment', {path: ":environment_name"}, function() {
+          this.route('edit');
+        });
+      });
+    });
   });
 });
 
