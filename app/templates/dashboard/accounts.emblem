@@ -1,5 +1,5 @@
 section.content-header
-  h1 Accounts <small>a list of the accounts you have access to</small>
+  h1 Accounts <small>use accounts to group your projects</small>
   ol.breadcrumb
     li: link-to "dashboard" <i class="fa fa-dashboard"/> Dashboard
     li.active All projects
