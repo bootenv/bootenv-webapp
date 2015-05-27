@@ -1,8 +1,8 @@
 {
   "name": "bootenv-webapp",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Small description for bootenv-webapp goes here",
-  "private": true,
+  "private": false,
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -12,11 +12,14 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "",
-  "engines": {
-    "node": ">= 0.10.0"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bootenv/bootenv-webapp.git"
   },
-  "author": "",
+  "engines": {
+    "node": ">= 0.12.2"
+  },
+  "author": "bootenv team",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
