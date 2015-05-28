@@ -21,20 +21,21 @@ section.content
         .box-body.table-responsive.no-padding
           table.table.table-hover.table-striped
             tbody
+              tr
+                th Account
+                th Name
+                th Description
+                th Environments
+              each project in model
                 tr
-                  th Account
-                  th Name
-                  th Description
-                  th Environments
-                each project in model
-                  tr
-                    td: link-to "dashboard.account.index" project.account
-                      project.account.name
-                    td: link-to "dashboard.account.project.index" project
-                      project.name
-                    td = project.description
-                    td
-                      span.label.label-success prod
-                      span.label.label-warning stage
-                      span.label.label-primary ci
-                      span.label.label-danger dev
+                  td: link-to "dashboard.account.index" project.account
+                    project.account.name
+                  td: link-to "dashboard.account.project.index" project
+                    project.name
+                  td = project.description
+                  td
+                    span.label.label-success prod
+                    span.label.label-warning stage
+                    span.label.label-primary ci
+                    span.label.label-danger dev
+

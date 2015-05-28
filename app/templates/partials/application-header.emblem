@@ -112,4 +112,4 @@ header.main-header
 
         / Control Sidebar Toggle Button
         li: a href="#" data-toggle="control-sidebar"
-            i.fa.fa-gears
+          i.fa.fa-gears

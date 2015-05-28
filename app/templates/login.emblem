@@ -1,9 +1,9 @@
 .login-box
   .login-logo
     a href="http://bootenv.com"
-        img src="assets/images/logo-dark-transparent.png" style="max-width: 350px"
+      img src="assets/images/logo-dark-transparent.png" style="max-width: 350px"
   .login-box-body
-    p.login-box-msg  Sign in to start your session
+    p.login-box-msg Sign in to start your session
     form submit="login"
       .form-group.has-feedback
         input.form-control type="email"  placeholder="Email"
@@ -17,7 +17,7 @@
             label
               | <input type="checkbox"> Remember Me
         .col-xs-4
-          button.btn.btn-primary.btn-block.btn-flat type="submit"  Sign In
+          button.btn.btn-primary.btn-block.btn-flat type="submit" Sign In
 
     .social-auth-links.text-center
       p - OR -

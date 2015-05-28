@@ -26,15 +26,16 @@ section.content
         .box-body.table-responsive.no-padding
           table.table.table-hover.table-striped
             tbody
+              tr
+                th Name
+                th Description
+                th
+              each environment in model.environments
                 tr
-                  th Name
-                  th Description
-                  th
-                each environment in model.environments
-                  tr
-                    td: link-to 'dashboard.account.project.index' environment
-                      = environment.name
-                    td = project.description
-                    td: link-to 'dashboard.account.project.edit' environment
-                      i.fa.fa-pencil
-                      |  Edit
+                  td: link-to 'dashboard.account.project.index' environment
+                    = environment.name
+                  td = project.description
+                  td: link-to 'dashboard.account.project.edit' environment
+                    i.fa.fa-pencil
+                    |  Edit
+
