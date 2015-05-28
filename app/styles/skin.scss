@@ -1,3 +1,57 @@
+@import "bootstrap/mixins";
+@import "bootstrap/variables";
+@import "variables";
+@import "mixins";
+
+$green: #00c400;
+
+.skin-green {
+  //Navbar
+  .main-header {
+    .navbar {
+      @include navbar-variant($black, #fff);
+      .sidebar-toggle {
+        color: #fff;
+        &:hover {
+          background-color: darken($black, 5%);
+        }
+      }
+      @media(max-width: $screen-header-collapse) {
+        .dropdown-menu {
+          li {
+            &.divider {
+              background-color: rgba(255,255,255,0.1);
+            }
+            a {
+              color: #fff;
+              &:hover {
+                background: darken($black, 5%);
+              }
+            }
+          }
+        }
+      }
+    }
+    //Logo
+    .logo {
+      @include logo-variant(darken($black, 5%));
+    }
+
+    li.user-header {
+      background-color: $green;
+    }
+  }
+
+  //Content Header
+  .content-header {
+    background: transparent;
+  }
+
+  //Create the sidebar skin
+  @include skin-dark-sidebar($green);
+
+}
+
 .login-page, .register-page {
   background: #000 url(images/bgnoise.png);
 }
@@ -6,64 +60,3 @@
   border-top: 1px solid transparent;
 }
 
-.skin-green {
-  .main-header {
-    .navbar-toggle {
-      color: #eee;
-    }
-    .navbar-brand {
-      color: #eee;
-      border-right: 1px solid #333;
-    }
-    > .navbar {
-      background-color: #000000;
-      .nav {
-        > li > a {
-          color: #cccccc;
-          border-right: 1px solid #333;
-        }
-        > li > a:hover, > li > a:active, > li > a:focus,
-        .open > a, .open > a:hover, .open > a:focus {
-          background: #333333;
-          color: #999999;
-        }
-      }
-      > .sidebar-toggle {
-        color: #eee;
-        border-right: 1px solid #333;
-        text-decoration: none;
-        &:hover {
-          color: #999999;
-          background: #333333;
-        }
-      }
-      .navbar-nav {
-        > li > a {
-          border-right: 1px solid #333;
-        }
-        .user-menu > .dropdown-menu {
-          padding: 0;
-        }
-      }
-      .navbar-custom-menu .navbar-nav > li > a,
-      .navbar-right > li > a {
-        border-left: 1px solid #333;
-      }
-    }
-    > .logo {
-      background-color: #000000;
-      color: #cccccc;
-      border-right: 1px solid #333;
-      &:hover {
-        background-color: #030303;
-      }
-      @media (max-width: 767px) {
-        background-color: #333333;
-        color: #cccccc;
-        &:hover {
-          background-color: #303030;
-        }
-      }
-    }
-  }
-}

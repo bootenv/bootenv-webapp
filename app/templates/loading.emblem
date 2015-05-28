@@ -1,1 +1,1 @@
-#loading.row: .col-xs-12.text-center: i.fa.fa-circle-o-notch.fa-spin.fa-4x
+#loading.row: .col-xs-12.text-center: loading-balls size=50
