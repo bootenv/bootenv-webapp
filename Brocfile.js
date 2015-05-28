@@ -3,6 +3,11 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp({
+  sassOptions: {
+    includePaths: [
+      'bower_components/admin-lte/build/sass'
+    ]
+  },
   sourcemaps: ['js', 'css'],
   favicon: {
     settings: {
@@ -27,7 +32,5 @@ var app = new EmberApp({
 // along with the exports of each module as its value.
 
 app.import('bower_components/admin-lte/dist/js/app.js');
-app.import('bower_components/admin-lte/dist/css/AdminLTE.css');
-app.import('bower_components/admin-lte/dist/css/skins/skin-green.css');
 
 module.exports = app.toTree();
