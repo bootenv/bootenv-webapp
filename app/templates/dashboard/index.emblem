@@ -26,7 +26,7 @@ section.content
                 th Name
                 th Description
                 th Environments
-              each project in model
+              each project in projects
                 tr
                   td: link-to "dashboard.account.index" project.account
                     project.account.name

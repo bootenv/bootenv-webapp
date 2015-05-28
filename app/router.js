@@ -29,18 +29,18 @@ Router.map(function() {
 
 Ember.Route.reopen({
 
-  activate: function() {
+  activate() {
     var cssClass = this.toCssClass();
     if (cssClass !== 'application') {
       Ember.$('body').addClass(cssClass);
     }
   },
 
-  deactivate: function() {
+  deactivate() {
     Ember.$('body').removeClass(this.toCssClass());
   },
 
-  toCssClass: function() {
+  toCssClass() {
     return this.routeName.replace(/\./g, '-').dasherize();
   }
 

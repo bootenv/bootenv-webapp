@@ -76,7 +76,7 @@ export default Ember.View.extend({
 
     className: "wrapper",
 
-    didInsertElement: function() {
+    didInsertElement() {
         init();
     }
 

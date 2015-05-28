@@ -1,12 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  toCssClass: function() {
+  toCssClass() {
     return "login-page";
   },
 
   actions: {
-    login: function() {
+    login() {
       this.transitionTo("dashboard");
     }
   }
