@@ -4,18 +4,18 @@
       img src="assets/images/logo-dark-transparent.png" style="max-width: 350px"
   .login-box-body
     p.login-box-msg Sign in to start your session
-    form submit="login"
+    form submit="authenticate"
       .form-group.has-feedback
-        input.form-control type="email"  placeholder="Email"
+        = input class="form-control" type="email" placeholder="Email" valueBinding=identification
         span.glyphicon.glyphicon-envelope.form-control-feedback
       .form-group.has-feedback
-        input.form-control type="password"  placeholder="Password"
+        = input class="form-control" type="password" placeholder="Password" valueBinding=password
         span.glyphicon.glyphicon-lock.form-control-feedback
       .row
         .col-xs-8
-          .checkbox.icheck
-            label
-              | <input type="checkbox"> Remember Me
+          .checkbox.icheck: label
+            input type="checkbox"
+            | Remember Me
         .col-xs-4
           button.btn.btn-primary.btn-block.btn-flat type="submit" Sign In
 

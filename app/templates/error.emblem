@@ -1,2 +1,4 @@
-h1 Oh snap!
-strong There's been an error loading this page. Please try again in a few moments.
+#error.row: .col-xs-12.text-center
+  h1 Oh snap!
+  strong There's been an error loading this page. Please try again in a few moments.
+
