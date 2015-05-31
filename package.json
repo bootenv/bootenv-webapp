@@ -2,7 +2,7 @@
   "name": "bootenv-webapp",
   "version": "1.0.0",
   "description": "Small description for bootenv-webapp goes here",
-  "private": false,
+  "private": true,
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -23,7 +23,7 @@
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
-    "ember-cli": "0.2.5",
+    "ember-cli": "0.2.6",
     "ember-cli-active-link-wrapper": "0.0.2",
     "ember-cli-app-version": "0.3.3",
     "ember-cli-babel": "^5.0.0",
@@ -40,13 +40,14 @@
     "ember-cli-loading": "0.1.0",
     "ember-cli-pace": "0.0.14",
     "ember-cli-qunit": "0.3.13",
+    "ember-cli-ramdisk": "0.0.7",
     "ember-cli-sass": "4.0.0",
     "ember-cli-simple-auth": "^0.8.0-beta.2",
     "ember-cli-simple-auth-token": "^0.7.1",
     "ember-cli-styles-reloader": "0.1.4",
     "ember-cli-uglify": "^1.0.1",
-    "ember-data": "1.0.0-beta.17",
-    "ember-disable-proxy-controllers": "^0.7.0",
+    "ember-data": "1.0.0-beta.18",
+    "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.2"
   }
 }
