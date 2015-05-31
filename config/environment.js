@@ -49,7 +49,10 @@ module.exports = function(environment) {
   }
 
   ENV['simple-auth'] = {
-    authorizer: 'simple-auth-authorizer:token'
+    session: 'session:custom',
+    authorizer: 'simple-auth-authorizer:token',
+    routeAfterAuthentication: 'dashboard',
+    routeIfAlreadyAuthenticated: 'dashboard'
   };
 
   ENV['simple-auth-token'] = {

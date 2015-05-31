@@ -4,6 +4,8 @@
       img src="assets/images/logo-dark-transparent.png" style="max-width: 350px"
   .login-box-body
     p.login-box-msg Sign in to start your session
+    if loginFailed
+      .alert.alert-danger Invalid username or password
     form submit="authenticate"
       .form-group.has-feedback
         = input class="form-control" type="email" placeholder="Email" valueBinding=identification

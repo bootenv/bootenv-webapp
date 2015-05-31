@@ -7,9 +7,9 @@ aside.main-sidebar
     / Sidebar user panel (optional)
     .user-panel
       .pull-left.image
-        gravatar-image email="cesar@caih.org" class="img-circle" alt="User Image"
+        gravatar-image email=session.currentUser.email class="img-circle" alt="User Image"
       .pull-left.info
-        p César Izurieta
+        p = session.currentUser.fullName
         / Status
         a href="#" <i class="fa fa-circle text-success"></i> Active
 

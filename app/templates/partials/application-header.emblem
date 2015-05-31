@@ -30,7 +30,7 @@ header.main-header
                 li
                   a href="#"
                     .pull-left
-                      gravatar-image email="cesar@caih.org" class="img-circle" alt="User Image"
+                      gravatar-image email=session.currentUser.email class="img-circle" alt="User Image"
                     / Message title and timestamp
                     h4
                       | Support Team
@@ -85,15 +85,15 @@ header.main-header
           / Menu Toggle Button
           a.dropdown-toggle href="#" data-toggle="dropdown"
             / The user image in the navbar
-            gravatar-image email="cesar@caih.org" class="user-image" alt="User Image"
+            gravatar-image email=session.currentUser.email class="user-image" alt="User Image"
             / hidden-xs hides the username on small devices so only the image appears.
-            span.hidden-xs César Izurieta
+            span.hidden-xs = session.currentUser.fullName
           ul.dropdown-menu
             / The user image in the menu
             li.user-header
-              gravatar-image email="cesar@caih.org" class="img-circle" alt="User Image"
+              gravatar-image email=session.currentUser.email class="img-circle" alt="User Image"
               p
-                | César Izurieta
+                = session.currentUser.fullName
                 small Member since Nov. 2012
             / Menu Body
             li.user-body
@@ -108,7 +108,7 @@ header.main-header
               .pull-left
                 a href="#" class="btn btn-default btn-flat" Profile
               .pull-right
-                link-to "login" class="btn btn-default btn-flat" | Sign out
+                a.btn.btn-default.btn-flat{action "invalidateSession"} Sign out
 
         / Control Sidebar Toggle Button
         li: a href="#" data-toggle="control-sidebar"
