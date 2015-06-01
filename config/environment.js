@@ -67,5 +67,16 @@ module.exports = function(environment) {
     timeFactor: 1
   };
 
+  ENV.contentSecurityPolicy = {
+    'default-src': "'none'",
+    // FIXME: https://github.com/rwjblue/ember-cli-content-security-policy/issues/38
+    //'script-src': "'self'",
+    'font-src': "'self' http://fonts.gstatic.com",
+    'connect-src': "'self' http://localhost:3000",
+    'img-src': "'self' https://www.gravatar.com",
+    'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
+    'media-src': "'self'"
+  };
+
   return ENV;
 };

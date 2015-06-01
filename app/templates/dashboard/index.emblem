@@ -51,7 +51,7 @@ section.content
                     td: link-to "dashboard.account.project.index" project
                       project.name
                     td = project.description
-                    td
+                    td.environments
                       span.label.label-success prod
                       span.label.label-warning stage
                       span.label.label-primary ci

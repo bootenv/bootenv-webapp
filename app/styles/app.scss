@@ -2,10 +2,15 @@
 @import "AdminLTE";
 @import "skin";
 
+.login-page, .register-page {
+  background: #000 url(images/bgnoise.png);
+}
+
 #loading.row {
   padding-top: 2em;
 }
 
-.dashboard-index .label {
+.dashboard-index .environments .label {
   margin-right: 0.5em;
 }
+
