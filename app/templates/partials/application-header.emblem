@@ -87,7 +87,11 @@ header.main-header
             / The user image in the navbar
             gravatar-image email=session.currentUser.email class="user-image" alt="User Image"
             / hidden-xs hides the username on small devices so only the image appears.
-            span.hidden-xs = session.currentUser.fullName
+            span.hidden-xs
+              if session.currentUser.fullName
+                = session.currentUser.fullName
+              else
+                | &nbsp;
           ul.dropdown-menu
             / The user image in the menu
             li.user-header

@@ -1,5 +1,8 @@
 footer.main-footer
   div.pull-right.hidden-xs
     | This is <a href="http://bootenv.org" target="blank">open source</a>
-  strong Copyright &copy; 2015 <a href="http://bootenv.com" target="blank">bootenv</a>.
-  | All rights reserved.
+  strong
+    | Copyright &copy; 2015
+    a href="http://bootenv.com" target="blank" bootenv
+    | .
+  |  All rights reserved.

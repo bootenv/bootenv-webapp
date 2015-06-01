@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-// Copied verbatim from admin-lte's app.js
+// Copied verbatim from admin-lte's app.js (except fastclick)
 function init() {
     /* jshint ignore:start */
     //Easy access to options
@@ -41,11 +41,6 @@ function init() {
     //Activate box widget
     if (o.enableBoxWidget) {
         $.AdminLTE.boxWidget.activate();
-    }
-
-    //Activate fast click
-    if (o.enableFastclick && typeof FastClick != 'undefined') {
-        FastClick.attach(document.body);
     }
 
     //Activate direct chat widget

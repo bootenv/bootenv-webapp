@@ -8,16 +8,16 @@
       .alert.alert-danger Invalid username or password
     form submit="authenticate"
       .form-group.has-feedback
-        = input class="form-control" type="email" placeholder="Email" valueBinding=identification
+        = input class="form-control" type="email" placeholder="Email" value=identification
         span.glyphicon.glyphicon-envelope.form-control-feedback
       .form-group.has-feedback
-        = input class="form-control" type="password" placeholder="Password" valueBinding=password
+        = input class="form-control" type="password" placeholder="Password" value=password
         span.glyphicon.glyphicon-lock.form-control-feedback
       .row
         .col-xs-8
           .checkbox.icheck: label
-            input type="checkbox"
-            | Remember Me
+            i-check checked=rememberMe
+            |  Remember Me
         .col-xs-4
           button.btn.btn-primary.btn-block.btn-flat type="submit" Sign In
 

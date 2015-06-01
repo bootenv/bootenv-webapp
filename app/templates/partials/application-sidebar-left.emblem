@@ -13,26 +13,28 @@ aside.main-sidebar
         / Status
         a href="#" <i class="fa fa-circle text-success"></i> Active
 
-    / search form (Optional)
-    form.sidebar-form action="#" method="get"
-      .input-group
-        input.form-control type="text" name="q" placeholder="Search..."
-        span.input-group-btn
-          button.btn.btn-flat type="submit" name="search" id="search-btn" <i class="fa fa-search"></i>
+    if session.currentUser.personalAccount
+      / search form (Optional)
+      form.sidebar-form action="#" method="get"
+        .input-group
+          input.form-control type="text" name="q" placeholder="Search..."
+          span.input-group-btn
+            button.btn.btn-flat type="submit" name="search" id="search-btn" <i class="fa fa-search"></i>
 
     / Sidebar Menu
     ul.sidebar-menu
       active-link: link-to "dashboard.index"
         i.fa.fa-tachometer
         span Dashboard
-      active-link: link-to "dashboard.accounts.index"
-        i.fa.fa-users
-        span Accounts
-      li.header FAVORITES
-      / Optionally, you can add icons to the links
-      li: a href="#"
-        i.fa.fa-link
-        span project-1
-      li: a href="#"
-        i.fa.fa-link
-        span project-2
+      if session.currentUser.personalAccount
+        active-link: link-to "dashboard.accounts.index"
+          i.fa.fa-users
+          span Accounts
+        li.header FAVORITES
+        / Optionally, you can add icons to the links
+        li: a href="#"
+          i.fa.fa-link
+          span project-1
+        li: a href="#"
+          i.fa.fa-link
+          span project-2
