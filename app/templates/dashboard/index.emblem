@@ -16,6 +16,8 @@ section.content
                 i.fa.fa-user
                 |  Create your personal account!
             .box-body
+              if failed
+                .alert.alert-danger There was an error creating your account. Please try again.
               fm-field type="text" value=username label="Username" required=true
               fm-field type="text" value=session.currentUser.fullName label="Your Full Name"
             .box-footer
