@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+
   actions: {
     createPersonalAccount() {
       var account = this.store.createRecord("account", {
@@ -17,5 +18,6 @@ export default Ember.Controller.extend({
       });
     }
   }
+
 });
 

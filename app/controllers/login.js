@@ -1,6 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+
+  rememberMe: false,
+
+  rememberMeChanged: function() {
+    // TODO do something?
+  }.observes('rememberMe'),
+
   actions: {
     authenticate() {
       var authenticator = 'simple-auth-authenticator:token';
@@ -14,5 +21,6 @@ export default Ember.Controller.extend({
       });
     }
   }
+
 });
 

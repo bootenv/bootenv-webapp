@@ -1,5 +1,4 @@
 import DS from 'ember-data';
 
-export default DS.JSONSerializer.extend({
-});
+export default DS.JSONSerializer.extend();
 

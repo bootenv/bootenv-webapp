@@ -3,6 +3,7 @@ import DS from 'ember-data';
 import Session from 'simple-auth/session';
 
 export default Session.extend({
+
   currentUser: function() {
     var userId = this.get('secure.userId');
 
@@ -12,4 +13,5 @@ export default Session.extend({
       });
     }
   }.property('secure.userId')
+
 });

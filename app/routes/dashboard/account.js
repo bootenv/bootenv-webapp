@@ -1,6 +1,7 @@
 import Ember from "ember";
 
 export default Ember.Route.extend({
+
   model(params) {
     var query = {
       name: params.account_name
@@ -10,7 +11,8 @@ export default Ember.Route.extend({
   },
 
   serialize(model) {
-    return {account_name: model.get("name")};
+    return { account_name: model.get("name") };
   }
+
 });
 

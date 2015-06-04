@@ -7,19 +7,20 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('login');
+  this.route('logout');
   this.route('signup');
 
-  this.route('dashboard', {path: '/'}, function() {
+  this.route('dashboard', { path: '/' }, function() {
     this.route('accounts', function() {
     });
 
-    this.route('account', {path: ":account_name"}, function() {
+    this.route('account', { path: ":account_name" }, function() {
       this.route('edit');
 
-      this.route('project', {path: ":project_name"}, function() {
+      this.route('project', { path: ":project_name" }, function() {
         this.route('edit');
 
-        this.route('environment', {path: ":environment_name"}, function() {
+        this.route('environment', { path: ":environment_name" }, function() {
           this.route('edit');
         });
       });
@@ -29,19 +30,22 @@ Router.map(function() {
 
 Ember.Route.reopen({
 
+  cssClass: function() {
+    return this.routeName.replace(/\./g, '-').dasherize();
+  }.property(),
+
   activate() {
-    var cssClass = this.toCssClass();
-    if (cssClass !== 'application') {
+    var cssClass = this.get("cssClass");
+    if (cssClass && cssClass !== 'application') {
       Ember.$('body').addClass(cssClass);
     }
   },
 
   deactivate() {
-    Ember.$('body').removeClass(this.toCssClass());
-  },
-
-  toCssClass() {
-    return this.routeName.replace(/\./g, '-').dasherize();
+    var cssClass = this.get("cssClass");
+    if (cssClass) {
+      Ember.$('body').removeClass(cssClass);
+    }
   }
 
 });

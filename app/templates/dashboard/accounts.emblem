@@ -28,9 +28,7 @@ section.content
               each account in model
                 tr
                   td: link-to 'dashboard.account.index' account
-                    = account.name
+                    account-icon account=account
+                      = account.name
                   td = account.description
-                  td: link-to 'dashboard.account.edit' account
-                    i.fa.fa-pencil
-                    |  Edit
 

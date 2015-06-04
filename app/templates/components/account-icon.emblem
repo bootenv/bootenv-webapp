@@ -1,0 +1,8 @@
+if account.private
+  i.fa.fa-lock
+else
+    if account.personal
+      i.fa.fa-user
+    else
+      i.fa.fa-users
+yield

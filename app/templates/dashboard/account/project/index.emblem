@@ -1,12 +1,13 @@
 section.content-header
-  h1 Project #{model.name} <small>everything related to the project</small>
-  ol.breadcrumb
-    li: link-to "dashboard"
-      i.fa.fa-dashboard
-      | Dashboard
-    li: link-to "dashboard.account" model.account
+  h1
+    if model.private
+      i.fa.fa-lock
+    else
+      i.fa.fa-book
+    link-to "dashboard.account" model.account
       = model.account.name
-    li.active
+    | /
+    link-to "dashboard.account.project" model
       = model.name
 
 section.content

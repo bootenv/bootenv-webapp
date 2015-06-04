@@ -1,16 +1,13 @@
 section.content-header
-  h1 Account #{model.name} <small>everything related to the account</small>
-  ol.breadcrumb
-    li: link-to "dashboard"
-      i.fa.fa-dashboard
-      | Dashboard
-    li.active
+  h1: account-icon account=account
+    link-to "dashboard.account" model.account
       = model.name
 
 section.content
   .row
-    .col-xs-12
-      .box
+    / Projects box
+    .col-xs-8
+      .box.box-primary
         .box-header
           h3.box-title
             | Projects &nbsp;
@@ -24,10 +21,11 @@ section.content
         .box-body.table-responsive.no-padding
           table.table.table-hover.table-striped
             tbody
-              tr
-                th Name
-                th Description
-                th
+              if projects
+                tr
+                  th Name
+                  th Description
+                  th
               each project in model.projects
                 tr
                   td: link-to 'dashboard.account.project.index' project
@@ -36,4 +34,52 @@ section.content
                   td: link-to 'dashboard.account.project.edit' project
                     i.fa.fa-pencil
                     |  Edit
+              else
+                tr
+                  td You have no projects. Go ahead a create a new one!
+
+    .col-xs-4
+      / People box
+      unless model.personal
+        .box.box-info
+          .box-header.with-border
+            h3.box-title People
+            .box-tools.pull-right
+              .label.label-default 8 Members
+          .box-body.no-padding
+            ul.users-list
+              li
+                gravatar-image email="x" class="img-circle" alt="User Image"
+                a class="users-list-name" href="#" Somebody
+                span.users-list-type Owner
+              li
+                gravatar-image email="x" class="img-circle" alt="User Image"
+                a class="users-list-name" href="#" Somebody
+                span.users-list-type Owner
+              li
+                gravatar-image email="x" class="img-circle" alt="User Image"
+                a class="users-list-name" href="#" Somebody
+                span.users-list-type User
+          .box-footer
+            a href="#"
+              i.fa.fa-cog
+              |  Manage users
+
+      / Teams box
+      .box.box-info
+        .box-header
+          h3.box-title Teams
+        .box-body.table-responsive.no-padding
+          table.table.table-hover.table-striped
+            tbody
+              tr
+                td Some group
+              tr
+                td Some group
+              tr
+                td Some group
+        .box-footer
+          a href="#"
+            i.fa.fa-cog
+            |  Manage teams
 
