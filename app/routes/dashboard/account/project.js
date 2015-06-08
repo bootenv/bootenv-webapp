@@ -3,12 +3,19 @@ import Ember from "ember";
 export default Ember.Route.extend({
 
   model(params) {
+    var account = this.modelFor("dashboard.account");
     var query = {
-      account_id: this.modelFor("dashboard.account").id,
+      account_id: account.id,
       name: params.project_name
     };
 
-    return this.store.find("project", query).then((projects) => projects.objectAt(0));
+    if (query.name === "new") {
+      return this.store.createRecord("project", {
+        account: account
+      });
+    } else {
+      return this.store.find("project", query).then((projects) => projects.get("firstObject"));
+    }
   },
 
   serialize(model) {

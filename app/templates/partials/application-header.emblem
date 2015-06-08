@@ -21,7 +21,7 @@ header.main-header
           / Menu Toggle Button
           a.dropdown-toggle href="#" data-toggle="dropdown"
             / The user image in the navbar
-            gravatar-image email=session.currentUser.email class="user-image" alt="User Image"
+            gravatar-image email=session.currentUser.email class="user-image" alt="Icon" defaultImage="retro"
             / hidden-xs hides the username on small devices so only the image appears.
             span.hidden-xs
               if session.currentUser.fullName
@@ -31,7 +31,7 @@ header.main-header
           ul.dropdown-menu
             / The user image in the menu
             li.user-header
-              gravatar-image email=session.currentUser.email class="img-circle" alt="User Image"
+              gravatar-image email=session.currentUser.email class="img-circle" alt="Icon" defaultImage="retro"
               p
                 = session.currentUser.fullName
                 small Member since Nov. 2012

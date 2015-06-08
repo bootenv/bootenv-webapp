@@ -16,10 +16,10 @@ Router.map(function() {
 
     this.route('account', { path: ":account_name" }, function() {
       this.route('teams');
-      this.route('edit');
+      this.route('settings');
 
       this.route('project', { path: ":project_name" }, function() {
-        this.route('edit');
+        this.route('settings');
 
         this.route('environment', { path: ":environment_name" }, function() {
           this.route('edit');
@@ -52,7 +52,7 @@ Ember.Route.reopen({
   afterModel(model, transition) {
     this._super(model, transition);
     setTimeout(() => {
-      closeTree(Ember.$("#main-menu"));
+      closeTree(Ember.$("#account-menu"));
     }, 100)
   }
 

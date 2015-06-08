@@ -1,5 +1,7 @@
 section.content-header
-  h1 Welcome to bootenv! <small>Simple Environment Configuration Management</small>
+  h1
+    | Welcome to bootenv!
+    small Simple Environment Configuration Management
 
 section.content
   .row

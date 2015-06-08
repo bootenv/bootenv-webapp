@@ -6,7 +6,8 @@ export default Ember.Controller.extend({
     completeProfile() {
       var account = this.store.createRecord("account", {
         name: this.get("username"),
-        description: "Personal Account"
+        description: "Personal Account",
+        email: this.get("session.currentUser.email")
       });
 
       account.save().then((account) => {

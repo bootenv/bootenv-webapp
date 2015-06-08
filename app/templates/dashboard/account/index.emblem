@@ -1,8 +1,10 @@
 section.content-header
-  h1: account-icon account=account
+  h1: account-icon account=model
     link-to "dashboard.account" model.account
       = model.name
-    |  / <strong>Projects</strong>
+    |  /
+    strong  Projects&nbsp;
+    small = model.description
 
 section.content
   .row

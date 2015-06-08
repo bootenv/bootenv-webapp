@@ -3,7 +3,7 @@ import { initAdminLte } from 'bootenv-webapp/utils/admin-lte';
 
 export default Ember.View.extend({
 
-  className: "wrapper",
+  classNames: ["wrapper"],
 
   didInsertElement() {
     initAdminLte();

@@ -1,14 +1,11 @@
 section.content-header
-  h1
-    if model.private
-      i.fa.fa-lock
-    else
-      i.fa.fa-book
+  h1: project-icon project=model
     link-to "dashboard.account" model.account
       = model.account.name
-    | /
+    |  /
+    '
     link-to "dashboard.account.project" model
-      strong model.name
+      strong = model.name
 
 section.content
   .row
@@ -36,7 +33,7 @@ section.content
                   td: link-to 'dashboard.account.project.index' environment
                     = environment.name
                   td = project.description
-                  td: link-to 'dashboard.account.project.edit' environment
+                  td: link-to 'dashboard.account.project.settings' environment
                     i.fa.fa-pencil
-                    |  Edit
+                    |  Settings
 

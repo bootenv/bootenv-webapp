@@ -5,31 +5,30 @@ aside.main-sidebar
         li.treeview
           a.user-panel href="#"
             .pull-left.image
-              gravatar-image email=session.currentAccount.name class="img-circle" alt="Icon"
+              gravatar-image email=session.currentAccount.email class="img-circle" alt="Icon" defaultImage="retro"
             .pull-left.info
               p = session.currentAccount.name
               / Status
               a href="#" <i class="fa fa-circle text-success"></i> Active
             i.fa.fa-angle-down.pull-right
-          ul.treeview-menu#main-menu
+          ul.treeview-menu#account-menu
             each accounts as |account|
-              unless (eq account.name session.currentAccount.name)
-                li: link-to "dashboard.account" account
-                  if account.personal
-                    i.fa.fa-user
-                  else
-                    i.fa.fa-group
-                  span = account.name
-            li: link-to "dashboard.account.edit" "new"
+              if (and account.id (not (eq account.name session.currentAccount.name)))
+                li: link-to "dashboard.account" account class="user-panel"
+                  .pull-left.image
+                    gravatar-image email=account.email class="img-circle" alt="Icon" defaultImage="retro"
+                  .pull-left.info
+                    p = account.name
+            li: link-to "dashboard.account.settings" "new"
               i.fa.fa-plus
               | Add organization
 
         active-link: link-to "dashboard.account.index" session.currentAccount
           i.fa.fa-book
           span Projects
-        active-link: link-to "dashboard.account.edit" session.currentAccount
-          i.fa.fa-pencil
-          span Edit
+        active-link: link-to "dashboard.account.settings" session.currentAccount
+          i.fa.fa-cog
+          span Settings
         unless session.currentAccount.personal
           active-link: link-to "dashboard.account.teams" session.currentAccount
             i.fa.fa-group

@@ -1,8 +1,10 @@
-if account.private
-  i.fa.fa-lock
-else
-    if account.personal
-      i.fa.fa-user
-    else
-      i.fa.fa-users
+span.header-icon.fa-stack
+  if account.personal
+    i.fa.fa-user.fa-stack-1x
+  else
+    i.fa.fa-group.fa-stack-1x
+
+  unless account.public
+    i.fa.fa-lock.fa-stack-1x
+
 yield

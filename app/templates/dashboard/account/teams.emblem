@@ -1,8 +1,9 @@
 section.content-header
-  h1: account-icon account=account
+  h1: account-icon account=model
     link-to "dashboard.account" model.account
       = model.name
-    |  / <strong>Teams</strong>
+    |  /
+    strong  Teams
 
 section.content
   .row
@@ -16,15 +17,15 @@ section.content
         .box-body.no-padding
           ul.users-list
             li
-              gravatar-image email="x" class="img-circle" alt="User Image"
+              gravatar-image email="x" class="img-circle" alt="User Image" defaultImage="retro"
               a class="users-list-name" href="#" Somebody
               span.users-list-type Owner
             li
-              gravatar-image email="x" class="img-circle" alt="User Image"
+              gravatar-image email="x" class="img-circle" alt="User Image" defaultImage="retro"
               a class="users-list-name" href="#" Somebody
               span.users-list-type Owner
             li
-              gravatar-image email="x" class="img-circle" alt="User Image"
+              gravatar-image email="x" class="img-circle" alt="User Image" defaultImage="retro"
               a class="users-list-name" href="#" Somebody
               span.users-list-type User
         .box-footer

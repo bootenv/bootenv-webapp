@@ -1,3 +1,20 @@
+section.content-header
+  h1: project-icon project=model
+    link-to "dashboard.account" model.account
+      = model.account.name
+    |  /
+    '
+    link-to "dashboard.account.project" model
+      = model.name
+    |  /
+    strong
+      if model.id
+        |  Settings
+      else
+        |  Create
+    '
+    small = model.description
+
 section.content
   .row
     .col-md-3
@@ -7,13 +24,10 @@ section.content
           .box-header.with-border
             h3.box-title
               i.fa.fa-user
-              if model.personal
-                |  Account
-              else
-                |  Organization
+              |  Project
           .box-body
             if failed
-              .alert.alert-danger There was an error creating your account. Please try again.
+              .alert.alert-danger There was an error saving your project. Please try again in a few moments.
             fm-field type="text" value=model.name label="Name" required=true
             fm-field type="text" value=model.description label="Description" required=true
             fm-checkbox checked=model.public label="Public"
