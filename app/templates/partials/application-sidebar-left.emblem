@@ -5,7 +5,7 @@ aside.main-sidebar
         li.treeview
           a.user-panel href="#"
             .pull-left.image
-              gravatar-image email=session.currentAccount.email class="img-circle" alt="Icon" defaultImage="retro"
+              gravatar-image email=session.currentAccount.email class="img-circle" alt=session.currentAccount.name title=session.currentAccount.name defaultImage="retro"
             .pull-left.info
               p = session.currentAccount.name
               / Status
@@ -16,10 +16,10 @@ aside.main-sidebar
               if (and account.id (not (eq account.name session.currentAccount.name)))
                 li: link-to "dashboard.account" account class="user-panel"
                   .pull-left.image
-                    gravatar-image email=account.email class="img-circle" alt="Icon" defaultImage="retro"
+                    gravatar-image email=account.email class="img-circle" alt=account.name title=account.name defaultImage="retro"
                   .pull-left.info
                     p = account.name
-            li: link-to "dashboard.account.settings" "new"
+            li.add: link-to "dashboard.account.settings" "new"
               i.fa.fa-plus
               | Add organization
 
