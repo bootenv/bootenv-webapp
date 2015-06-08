@@ -21,7 +21,7 @@ export default Ember.Route.extend({
 
   afterModel(model) {
     if (model.get && model.get("name")) {
-      this.set("session.currentAccount", model)
+      this.set("session.currentAccount", model);
     }
   }
 

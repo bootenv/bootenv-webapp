@@ -1,0 +1,27 @@
+section.content-header: h1
+  span.header-icon.fa-stack
+    i.fa.fa-book.fa-stack-1x
+
+    unless project.public
+      i.fa.fa-lock.fa-stack-1x
+
+  link-to "dashboard.account" project.account
+    = project.account.name
+
+  if project.id
+    |  /
+    '
+    if template
+      link-to "dashboard.account.project" project
+        = project.name
+      |  /
+    else
+      strong = project.name
+      link-to "dashboard.account.project.settings" project
+        i.fa.fa-cog
+  '
+  strong = yield
+  unless template
+    '
+    small = project.description
+

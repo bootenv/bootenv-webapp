@@ -1,19 +1,8 @@
-section.content-header
-  h1: project-icon project=model
-    link-to "dashboard.account" model.account
-      = model.account.name
-    |  /
-    '
-    link-to "dashboard.account.project" model
-      = model.name
-    |  /
-    strong
-      if model.id
-        |  Settings
-      else
-        |  Create
-    '
-    small = model.description
+project-header project=model
+  if model.id
+    | settings
+  else
+    | create
 
 section.content
   .row
@@ -30,6 +19,9 @@ section.content
               .alert.alert-danger There was an error saving your project. Please try again in a few moments.
             fm-field type="text" value=model.name label="Name" required=true
             fm-field type="text" value=model.description label="Description" required=true
-            fm-checkbox checked=model.public label="Public"
+            .checkbox.pull-left: label
+              i-check checked=model.public
+              |  Public
           .box-footer
+            button.btn.btn-danger.pull-left type="submit" click="delete" Delete
             button.btn.btn-info.pull-right type="submit" Save

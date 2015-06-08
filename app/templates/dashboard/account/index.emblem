@@ -1,10 +1,4 @@
-section.content-header
-  h1: account-icon account=model
-    link-to "dashboard.account" model.account
-      = model.name
-    |  /
-    strong  Projects&nbsp;
-    small = model.description
+account-header account=model
 
 section.content
   .row
@@ -14,7 +8,7 @@ section.content
         .box-header
           h3.box-title
             | Projects &nbsp;
-            link-to "dashboard" class="btn btn-xs btn-flat bg-olive"
+            link-to "dashboard.account.project.settings" model "new" class="btn btn-xs btn-flat bg-olive"
               i.fa.fa-plus
           .box-tools
             .input-group

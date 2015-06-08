@@ -10,30 +10,9 @@
   padding-top: 2em;
 }
 
-.dashboard-index .environments .label {
-  margin-right: 0.5em;
-}
-
-.content-header .header-icon {
-  color: #aaa;
-
-  .fa-lock {
-    color: $red;
-    left: 10px;
-    top: 10px;
-    font-size: 20px;
-  }
-}
-
-td i.fa {
-  margin-right: 0.5em;
-}
-
-.users-list-type {
-  color: #999;
-  font-size: 12px;
-}
-
+/***********************************************************************
+ * SIDEBAR
+ ***********************************************************************/
 .sidebar a.user-panel {
   padding: 10px 10px 12px;
 
@@ -41,7 +20,6 @@ td i.fa {
     overflow: hidden;
     display: inline-block;
   }
-
 }
 
 #account-menu {
@@ -58,6 +36,55 @@ td i.fa {
   top: 0;
 }
 
+/***********************************************************************
+ * HEADERS
+ ***********************************************************************/
+
+.content-header {
+  .header-icon {
+    color: #aaa;
+
+    .fa-lock {
+      color: $red;
+      left: 10px;
+      top: 10px;
+      font-size: 20px;
+    }
+  }
+
+  .fa-cog {
+    color: #ccc;
+    font-size: 15px;
+    padding-left: 6px;
+    vertical-align: middle;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+}
+
+/***********************************************************************
+ * FORMS
+ ***********************************************************************/
+
 .box-body .checkbox label {
   padding-left: 0;
+}
+
+/***********************************************************************
+ * OTHER
+ ***********************************************************************/
+
+td i.fa {
+  margin-right: 0.5em;
+}
+
+.users-list-type {
+  color: #999;
+  font-size: 12px;
+}
+
+.environments .label {
+  margin-right: 0.5em;
 }

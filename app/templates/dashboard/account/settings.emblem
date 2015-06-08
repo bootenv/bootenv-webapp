@@ -1,14 +1,8 @@
-section.content-header
-  h1: account-icon account=model
-    if model.id
-      link-to "dashboard.account" model.account
-        = model.name
-      |  /
-      strong  Settings
-    else
-      strong  Create
-    '
-    small = model.description
+account-header account=model
+  if model.id
+    | settings
+  else
+    | create
 
 section.content
   .row

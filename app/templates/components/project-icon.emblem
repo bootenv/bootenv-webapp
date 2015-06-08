@@ -1,7 +1,0 @@
-span.header-icon.fa-stack
-  i.fa.fa-book.fa-stack-1x
-
-  unless project.public
-    i.fa.fa-lock.fa-stack-1x
-
-yield

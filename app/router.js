@@ -53,7 +53,7 @@ Ember.Route.reopen({
     this._super(model, transition);
     setTimeout(() => {
       closeTree(Ember.$("#account-menu"));
-    }, 100)
+    }, 100);
   }
 
 });

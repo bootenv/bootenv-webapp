@@ -12,7 +12,7 @@ export default DS.RESTAdapter.extend({
     var loopbackQuery = {};
 
     Ember.$.each(query, (k, v) => {
-      loopbackQuery["filter[where][" + k + "]"] = v;
+      loopbackQuery["filter[where][" + Ember.String.camelize(k) + "]"] = v;
     });
 
     return this._super(store, type, loopbackQuery);

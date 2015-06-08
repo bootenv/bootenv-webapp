@@ -1,11 +1,4 @@
-section.content-header
-  h1: project-icon project=model
-    link-to "dashboard.account" model.account
-      = model.account.name
-    |  /
-    '
-    link-to "dashboard.account.project" model
-      strong = model.name
+project-header project=model
 
 section.content
   .row

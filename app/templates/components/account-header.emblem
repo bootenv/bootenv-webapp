@@ -1,0 +1,24 @@
+section.content-header: h1
+  span.header-icon.fa-stack
+    if account.personal
+      i.fa.fa-user.fa-stack-1x
+    else
+      i.fa.fa-group.fa-stack-1x
+
+    unless account.public
+      i.fa.fa-lock.fa-stack-1x
+
+  if account.id
+    if template
+      link-to "dashboard.account" account
+        = account.name
+      |  /
+    else
+      strong = account.name
+      link-to "dashboard.account.settings" account
+        i.fa.fa-cog
+  '
+  strong = yield
+  unless template
+    '
+    small = account.description

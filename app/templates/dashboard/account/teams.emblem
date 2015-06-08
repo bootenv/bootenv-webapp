@@ -1,9 +1,5 @@
-section.content-header
-  h1: account-icon account=model
-    link-to "dashboard.account" model.account
-      = model.name
-    |  /
-    strong  Teams
+account-header account=model
+  | teams
 
 section.content
   .row
