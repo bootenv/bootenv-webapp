@@ -20,10 +20,10 @@ section.content
           .box-body
             if failed
               .alert.alert-danger There was an error saving your account. Please try again in a few moments.
-            fm-field type="text" value=model.name label="Name*" required=true
+            fm-field type="text" value=model.name label="Name *" required=true
             fm-field type="text" value=model.description label="Description"
-            fm-field type="text" value=model.url label="URL" placeholder="http://"
             fm-field type="email" value=model.email label="Email"
+            fm-field type="text" value=model.url label="URL" placeholder="http://"
             .checkbox.pull-left: label
               i-check checked=model.public
               |  Public

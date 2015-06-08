@@ -4,18 +4,23 @@ export default Ember.Controller.extend({
 
   actions: {
     completeProfile() {
-      var account = this.store.createRecord("account", {
-        name: this.get("username"),
-        description: "Personal Account",
-        email: this.get("session.currentUser.email")
-      });
-
-      account.save().then((account) => {
-        return this.get("session.currentUser").then((user) => {
-          return user.set("personalAccount", account).save();
+      this.get("session.currentUser").then((user) => {
+        var account = this.store.createRecord("account", {
+          name: this.get("username"),
+          description: "Personal Account",
+          email: this.get("session.currentUser.email"),
+          personal: true,
+          owners: [user]
         });
-      }).catch(() => {
-        this.set("failed", true);
+
+        account.save().then((account) => {
+          return user.set("personalAccount", account).save().then(() => {
+            this.set("session.currentAccount", account);
+            this.transitionTo("dashboard");
+          });
+        }).catch(() => {
+          this.set("failed", true);
+        });
       });
     }
   }

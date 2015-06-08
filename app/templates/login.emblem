@@ -3,7 +3,7 @@
     a href="http://bootenv.com"
       img src="assets/images/logo-dark-transparent.png" style="max-width: 350px"
   .login-box-body
-    p.login-box-msg Sign in to start your session
+    p.login-box-msg Log in to start your session
     if loginFailed
       .alert.alert-danger Invalid username or password
     form submit="authenticate"
@@ -19,19 +19,19 @@
             i-check checked=rememberMe
             |  Remember Me
         .col-xs-4
-          button.btn.btn-primary.btn-block.btn-flat type="submit" Sign In
+          button.btn.btn-primary.btn-block.btn-flat type="submit" Log In
 
     .social-auth-links.text-center
       p - OR -
       a.btn.btn-block.btn-social.btn-github.btn-flat href="/"
         i.fa.fa-github
-        | Sign in using GitHub
+        | Log in using GitHub
       a.btn.btn-block.btn-social.btn-twitter.btn-flat href="/"
         i.fa.fa-facebook
-        | Sign in using Twitter
+        | Log in using Twitter
       a.btn.btn-block.btn-social.btn-google-plus.btn-flat href="/"
         i.fa.fa-google-plus
-        | Sign in using Google+
+        | Log in using Google+
 
     a href="#" I forgot my password
     br

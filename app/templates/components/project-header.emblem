@@ -2,23 +2,27 @@ section.content-header: h1
   span.header-icon.fa-stack
     i.fa.fa-book.fa-stack-1x
 
-    unless project.public
-      i.fa.fa-lock.fa-stack-1x
+    if project.public
+      i.fa.fa-unlock.fa-stack-1x.is-public
+    else
+      i.fa.fa-lock.fa-stack-1x.is-public
 
   link-to "dashboard.account" project.account
     = project.account.name
 
-  if project.id
-    |  /
-    '
-    if template
+  if template
+    if project.id
+      |  /
+      '
       link-to "dashboard.account.project" project
         = project.name
-      |  /
-    else
-      strong = project.name
-      link-to "dashboard.account.project.settings" project
-        i.fa.fa-cog
+    |  /
+  else
+    |  /
+    '
+    strong = project.name
+    link-to "dashboard.account.project.settings" project
+      i.fa.fa-cog
   '
   strong = yield
   unless template

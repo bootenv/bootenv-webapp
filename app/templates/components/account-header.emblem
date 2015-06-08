@@ -5,8 +5,10 @@ section.content-header: h1
     else
       i.fa.fa-group.fa-stack-1x
 
-    unless account.public
-      i.fa.fa-lock.fa-stack-1x
+    if account.public
+      i.fa.fa-unlock.fa-stack-1x.is-public
+    else
+      i.fa.fa-lock.fa-stack-1x.is-public
 
   if account.id
     if template

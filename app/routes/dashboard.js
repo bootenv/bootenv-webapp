@@ -15,11 +15,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     controller.setProperties(models);
   },
 
-  afterModel(model) {
-    if (!model.accounts) {
+  afterModel(models) {
+    if (!models.accounts || models.accounts.get("length") == 0) {
       this.transitionTo('dashboard.profile');
     } else if (!this.get("session.currentAccount")) {
-      this.set("session.currentAccount", model.accounts.get("firstObject"));
+      this.set("session.currentAccount", models.accounts.get("firstObject"));
     }
   }
 

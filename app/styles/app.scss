@@ -44,11 +44,18 @@
   .header-icon {
     color: #aaa;
 
-    .fa-lock {
-      color: $red;
+    .is-public {
       left: 10px;
       top: 10px;
       font-size: 20px;
+    }
+
+    .fa-lock {
+      color: $red;
+    }
+
+    .fa-unlock {
+      color: $green;
     }
   }
 
