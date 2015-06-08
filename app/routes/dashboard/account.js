@@ -15,7 +15,14 @@ export default Ember.Route.extend({
   },
 
   serialize(model) {
-    return { account_name: model.get("name") || "new" };
+    // FIXME this should be model.get("name") || "new"
+    return { account_name: (model.get && model.get("name")) || model.name || "new" };
+  },
+
+  afterModel(model) {
+    if (model.get && model.get("name")) {
+      this.set("session.currentAccount", model)
+    }
   }
 
 });

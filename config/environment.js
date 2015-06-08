@@ -25,6 +25,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV.API_HOST = "http://localhost:3000";
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -52,15 +53,16 @@ module.exports = function(environment) {
     session: 'session:custom',
     authorizer: 'simple-auth-authorizer:token',
     routeAfterAuthentication: 'dashboard.index',
-    routeIfAlreadyAuthenticated: 'dashboard.index'
+    routeIfAlreadyAuthenticated: 'dashboard.index',
+    crossOriginWhitelist: [ENV.API_HOST]
   };
 
   ENV['simple-auth-token'] = {
-    serverTokenEndpoint: 'http://localhost:3000/api/users/login',
+    serverTokenEndpoint: ENV.API_HOST + '/api/users/login',
     identificationField: 'email',
     passwordField: 'password',
     tokenPropertyName: 'id',
-    authorizationPrefix: '',
+    authorizationPrefix: null,
     authorizationHeaderName: 'Authorization',
     refreshAccessTokens: false,
     tokenExpireName: 'ttl',

@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import config from './config/environment';
+import { closeTree } from 'bootenv-webapp/utils/admin-lte';
 
 var Router = Ember.Router.extend({
   location: config.locationType
@@ -46,6 +47,13 @@ Ember.Route.reopen({
     if (cssClass) {
       Ember.$('body').removeClass(cssClass);
     }
+  },
+
+  afterModel(model, transition) {
+    this._super(model, transition);
+    setTimeout(() => {
+      closeTree(Ember.$("#main-menu"));
+    }, 100)
   }
 
 });

@@ -1,5 +1,17 @@
-// Copied verbatim from admin-lte's app.js (except fastclick)
-export default function() {
+// The code in this file is mostly copied verbatim from admin-lte's app.js (without fastclick)
+
+export function closeTree(checkElement) {
+  if ((checkElement.is('.treeview-menu')) && (checkElement.is(':visible'))) {
+    checkElement.slideUp('normal', function () {
+      checkElement.removeClass('menu-open');
+      //Fix the layout in case the sidebar stretches over the height of the window
+      //_this.layout.fix();
+    });
+    checkElement.parent("li").removeClass("active");
+  }
+}
+
+export function initAdminLte() {
   /* jshint ignore:start */
   //Easy access to options
   var o = $.AdminLTE.options;

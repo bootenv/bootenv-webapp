@@ -11,11 +11,14 @@ aside.main-sidebar
               / Status
               a href="#" <i class="fa fa-circle text-success"></i> Active
             i.fa.fa-angle-down.pull-right
-          ul.treeview-menu
+          ul.treeview-menu#main-menu
             each accounts as |account|
-              unless (eq account session.currentAccount)
-                li: a href="#"
-                  i.fa.fa-group
+              unless (eq account.name session.currentAccount.name)
+                li: link-to "dashboard.account" account
+                  if account.personal
+                    i.fa.fa-user
+                  else
+                    i.fa.fa-group
                   span = account.name
             li: link-to "dashboard.account.edit" "new"
               i.fa.fa-plus
@@ -24,6 +27,9 @@ aside.main-sidebar
         active-link: link-to "dashboard.account.index" session.currentAccount
           i.fa.fa-book
           span Projects
+        active-link: link-to "dashboard.account.edit" session.currentAccount
+          i.fa.fa-pencil
+          span Edit
         unless session.currentAccount.personal
           active-link: link-to "dashboard.account.teams" session.currentAccount
             i.fa.fa-group
