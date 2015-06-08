@@ -1,0 +1,20 @@
+section.content-header
+  h1 Welcome to bootenv! <small>Simple Environment Configuration Management</small>
+
+section.content
+  .row
+    .col-md-3
+    .col-md-6
+      .box.box-primary
+        fm-form role="form" action="createPersonalAccount"
+          .box-header.with-border
+            h3.box-title
+              i.fa.fa-user
+              |  Complete your profile
+          .box-body
+            if failed
+              .alert.alert-danger There was an error creating your account. Please try again.
+            fm-field type="text" value=username label="Username" required=true
+            fm-field type="text" value=session.currentUser.fullName label="Your Full Name"
+          .box-footer
+            button.btn.btn-info.pull-right type="submit" Save

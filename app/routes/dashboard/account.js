@@ -7,11 +7,15 @@ export default Ember.Route.extend({
       name: params.account_name
     };
 
-    return this.store.find("account", query).then((accounts) => accounts.objectAt(0));
+    if (query.name === "new") {
+      return this.store.createRecord("account");
+    } else {
+      return this.store.find("account", query).then((accounts) => accounts.objectAt(0));
+    }
   },
 
   serialize(model) {
-    return { account_name: model.get("name") };
+    return { account_name: model.get("name") || "new" };
   }
 
 });

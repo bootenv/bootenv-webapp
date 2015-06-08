@@ -2,11 +2,12 @@ section.content-header
   h1: account-icon account=account
     link-to "dashboard.account" model.account
       = model.name
+    |  / <strong>Projects</strong>
 
 section.content
   .row
     / Projects box
-    .col-xs-8
+    .col-xs-12
       .box.box-primary
         .box-header
           h3.box-title
@@ -25,61 +26,17 @@ section.content
                 tr
                   th Name
                   th Description
-                  th
+                  th Environments
               each project in model.projects
                 tr
                   td: link-to 'dashboard.account.project.index' project
                     = project.name
                   td = project.description
-                  td: link-to 'dashboard.account.project.edit' project
-                    i.fa.fa-pencil
-                    |  Edit
+                  td.environments
+                    span.label.label-success prod
+                    span.label.label-warning stage
+                    span.label.label-primary ci
+                    span.label.label-danger dev
               else
                 tr
                   td You have no projects. Go ahead a create a new one!
-
-    .col-xs-4
-      / People box
-      unless model.personal
-        .box.box-info
-          .box-header.with-border
-            h3.box-title People
-            .box-tools.pull-right
-              .label.label-default 8 Members
-          .box-body.no-padding
-            ul.users-list
-              li
-                gravatar-image email="x" class="img-circle" alt="User Image"
-                a class="users-list-name" href="#" Somebody
-                span.users-list-type Owner
-              li
-                gravatar-image email="x" class="img-circle" alt="User Image"
-                a class="users-list-name" href="#" Somebody
-                span.users-list-type Owner
-              li
-                gravatar-image email="x" class="img-circle" alt="User Image"
-                a class="users-list-name" href="#" Somebody
-                span.users-list-type User
-          .box-footer
-            a href="#"
-              i.fa.fa-cog
-              |  Manage users
-
-      / Teams box
-      .box.box-info
-        .box-header
-          h3.box-title Teams
-        .box-body.table-responsive.no-padding
-          table.table.table-hover.table-striped
-            tbody
-              tr
-                td Some group
-              tr
-                td Some group
-              tr
-                td Some group
-        .box-footer
-          a href="#"
-            i.fa.fa-cog
-            |  Manage teams
-

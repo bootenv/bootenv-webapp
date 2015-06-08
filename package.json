@@ -50,6 +50,7 @@
     "ember-data": "1.0.0-beta.18",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.2",
-    "ember-form-master-2000": "0.1.0"
+    "ember-form-master-2000": "0.1.0",
+    "ember-truth-helpers": "0.0.5"
   }
 }

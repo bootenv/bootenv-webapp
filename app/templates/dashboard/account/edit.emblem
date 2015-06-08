@@ -1,0 +1,21 @@
+section.content
+  .row
+    .col-md-3
+    .col-md-6
+      .box.box-primary
+        fm-form role="form" action="save"
+          .box-header.with-border
+            h3.box-title
+              i.fa.fa-user
+              if model.personal
+                |  Account
+              else
+                |  Organization
+          .box-body
+            if failed
+              .alert.alert-danger There was an error creating your account. Please try again.
+            fm-field type="text" value=model.name label="Name" required=true
+            fm-field type="text" value=model.description label="Description" required=true
+            fm-checkbox checked=model.public label="Public"
+          .box-footer
+            button.btn.btn-info.pull-right type="submit" Save

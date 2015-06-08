@@ -1,37 +1,34 @@
-/ Left side column. contains the logo and sidebar
 aside.main-sidebar
-
-  / sidebar: style can be found in sidebar.less
   section.sidebar
+    if session.currentAccount
+      ul.sidebar-menu
+        li.treeview
+          a.user-panel href="#"
+            .pull-left.image
+              gravatar-image email=session.currentAccount.name class="img-circle" alt="Icon"
+            .pull-left.info
+              p = session.currentAccount.name
+              / Status
+              a href="#" <i class="fa fa-circle text-success"></i> Active
+            i.fa.fa-angle-down.pull-right
+          ul.treeview-menu
+            each accounts as |account|
+              unless (eq account session.currentAccount)
+                li: a href="#"
+                  i.fa.fa-group
+                  span = account.name
+            li: link-to "dashboard.account.edit" "new"
+              i.fa.fa-plus
+              | Add organization
 
-    / Sidebar user panel (optional)
-    .user-panel
-      .pull-left.image
-        gravatar-image email=session.currentUser.email class="img-circle" alt="User Image"
-      .pull-left.info
-        p = session.currentUser.fullName
-        / Status
-        a href="#" <i class="fa fa-circle text-success"></i> Active
-
-    if session.currentUser.personalAccount
-      / search form (Optional)
-      form.sidebar-form action="#" method="get"
-        .input-group
-          input.form-control type="text" name="q" placeholder="Search..."
-          span.input-group-btn
-            button.btn.btn-flat type="submit" name="search" id="search-btn" <i class="fa fa-search"></i>
-
-    / Sidebar Menu
-    ul.sidebar-menu
-      active-link: link-to "dashboard.index"
-        i.fa.fa-tachometer
-        span Dashboard
-      if session.currentUser.personalAccount
-        active-link: link-to "dashboard.accounts.index"
-          i.fa.fa-users
-          span Accounts
+        active-link: link-to "dashboard.account.index" session.currentAccount
+          i.fa.fa-book
+          span Projects
+        unless session.currentAccount.personal
+          active-link: link-to "dashboard.account.teams" session.currentAccount
+            i.fa.fa-group
+            span Teams
         li.header FAVORITES
-        / Optionally, you can add icons to the links
         li: a href="#"
           i.fa.fa-link
           span project-1

@@ -11,10 +11,10 @@ Router.map(function() {
   this.route('signup');
 
   this.route('dashboard', { path: '/' }, function() {
-    this.route('accounts', function() {
-    });
+    this.route('profile');
 
     this.route('account', { path: ":account_name" }, function() {
+      this.route('teams');
       this.route('edit');
 
       this.route('project', { path: ":project_name" }, function() {

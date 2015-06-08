@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
   actions: {
-    createPersonalAccount() {
+    completeProfile() {
       var account = this.store.createRecord("account", {
         name: this.get("username"),
         description: "Personal Account"

@@ -8,7 +8,7 @@ section.content-header
       = model.account.name
     | /
     link-to "dashboard.account.project" model
-      = model.name
+      strong model.name
 
 section.content
   .row
