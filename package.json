@@ -1,26 +1,28 @@
 {
   "name": "bootenv-webapp",
+  "description": "Bootenv WEBAPP",
   "version": "1.0.0",
-  "description": "Small description for bootenv-webapp goes here",
-  "private": true,
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
-  },
-  "scripts": {
-    "start": "ember server",
-    "build": "ember build",
-    "test": "ember test"
-  },
+  "author": "Bootenv",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:bootenv/bootenv-webapp.git"
   },
   "engines": {
-    "node": ">= iojs-v2.1"
+    "iojs": "2.1.x",
+    "npm": "2.11.x"
   },
-  "author": "bootenv team",
-  "license": "MIT",
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "main": "ember server",
+  "scripts": {
+    "start": "ember server",
+    "build": "ember build",
+    "pretest": "jshint .",
+    "test": "ember test"
+  },
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.5",
     "ember-cli": "0.2.6",
