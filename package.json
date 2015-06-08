@@ -20,7 +20,6 @@
   "scripts": {
     "start": "ember server",
     "build": "ember build",
-    "pretest": "jshint .",
     "test": "ember test"
   },
   "devDependencies": {
