@@ -1,7 +1,9 @@
-# Bootenv-webapp [![Build Status](https://travis-ci.org/bootenv/bootenv-webapp.svg)](https://travis-ci.org/bootenv/bootenv-webapp)
+# [![>bootenv](http://bootenv.com/img/logo-light-transparent-readme-files.png)](http://bootenv.com)-WEBAPP
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+[![license](https://img.shields.io/badge/license-Apache_2.0-blue.svg)]()
+[![engine](https://img.shields.io/badge/iojs-v2.1.0-yellow.svg)]()
+[![npm](https://img.shields.io/npm/v/npm.svg)]()
+[![Build Status](https://travis-ci.org/bootenv/bootenv-webapp.svg?branch=master)](https://travis-ci.org/bootenv/bootenv-webapp)
 
 ## Prerequisites
 
@@ -51,3 +53,11 @@ Specify what it takes to deploy your app.
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
 
+VERSIONS
+=============
+ 
+ - 1.0.0 (current)
+
+LICENSE
+=============
+[Apache-2.0](LICENSE)
