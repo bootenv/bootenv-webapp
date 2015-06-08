@@ -4,7 +4,7 @@ export default Ember.Route.extend({
 
   beforeModel() {
     if (this.get("session.currentAccount")) {
-      this.transitionTo('dashboard')
+      this.transitionTo('dashboard');
     }
   }
 
