@@ -12,21 +12,28 @@ export default Ember.Route.extend({
     } else {
       return this.store.find("account", query).then((accounts) => {
         // TODO remove this hack to load the projects once we get the list of ids from the api
-        var account = accounts.objectAt(0);
+        var account = accounts.get("firstObject");
         return this.store.find("project", { accountId: account.get("id") }).then(() => {
           return account;
         });
+      }).catch(() => {
+        // TODO: show an "Account not found" message
+        this.session.resetCurrentAccount();
+        this.transitionTo("dashboard");
       });
     }
   },
 
   serialize(model) {
-    // FIXME this should be model.get("name") || "new"
-    return { account_name: (model.get && model.get("name")) || model.name || "new" };
+    return {
+      account_name: model.get("name") || "new"
+    };
   },
 
   afterModel(model) {
-    if (model.get && model.get("name") !== "new") {
+    if (Ember.isEmpty(model.get("id"))) {
+      this.transitionTo("dashboard.account.settings", model);
+    } else {
       this.set("session.currentAccountId", model.get("id"));
     }
   }

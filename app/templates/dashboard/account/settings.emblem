@@ -32,7 +32,7 @@ section.content
           .box-footer
             if model.id
               unless model.personal
-                button.btn.btn-danger.pull-left type="submit" click="delete" Delete
+                button.btn.btn-danger.pull-left type="button" click="delete" Delete
             else
-              button.btn.btn-warn.pull-left type="submit" click="delete" Cancel
+              button.btn.btn-warn.pull-left type="button" click="delete" Cancel
             button.btn.btn-info.pull-right type="submit" Save

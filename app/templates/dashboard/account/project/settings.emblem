@@ -23,8 +23,9 @@ section.content
               i-check checked=model.public
               |  Public
           .box-footer
-            if model.id
-              button.btn.btn-danger.pull-left type="submit" click="delete" Delete
-            else
-              button.btn.btn-warn.pull-left type="submit" click="delete" Cancel
+            button.btn.btn-danger.pull-left type="button" click="delete"
+              if model.id
+                | Delete
+              else
+                | Cancel
             button.btn.btn-info.pull-right type="submit" Save

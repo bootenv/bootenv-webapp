@@ -15,6 +15,7 @@ export default Ember.Controller.extend({
 
         account.save().then((account) => {
           return user.set("personalAccount", account).save().then(() => {
+            this.session.resetCurrentAccount();
             this.transitionTo("dashboard");
           });
         }).catch(() => {

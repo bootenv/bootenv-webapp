@@ -24,7 +24,7 @@ export default Session.extend({
         promise: store.find('account', currentAccountId).catch(() => this.resetCurrentAccount())
       });
     } else {
-      return this.resetCurrentAccount()
+      return this.resetCurrentAccount();
     }
   }.property("currentAccountId"),
 

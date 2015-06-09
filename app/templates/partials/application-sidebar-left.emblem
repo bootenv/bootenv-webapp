@@ -2,38 +2,21 @@ aside.main-sidebar
   section.sidebar
     if session.currentAccount
       ul.sidebar-menu
-        li.treeview
-          a.user-panel href="#"
-            .pull-left.image
-              gravatar-image email=session.currentAccount.email class="img-circle" alt=session.currentAccount.name title=session.currentAccount.name defaultImage="retro"
-            .pull-left.info
-              p = session.currentAccount.name
-              / Status
-              a href="#" <i class="fa fa-circle text-success"></i> Active
-            i.fa.fa-angle-down.pull-right
-          ul.treeview-menu#account-menu
-            each accounts as |account|
-              if (and account.id (not (eq account.name session.currentAccount.name)))
-                li: link-to "dashboard.account" account class="user-panel"
-                  .pull-left.image
-                    gravatar-image email=account.email class="img-circle" alt=account.name title=account.name defaultImage="retro"
-                  .pull-left.info
-                    p = account.name
-            li.add: link-to "dashboard.account.settings" "new"
-              i.fa.fa-plus
-              | Add organization
+        application-sidebar-user-panel accounts=accounts
 
         active-link: link-to "dashboard.account.index" session.currentAccount
           i.fa.fa-book
-          span Projects
+          span Overview
+
         unless session.currentAccount.personal
           active-link: link-to "dashboard.account.teams" session.currentAccount
             i.fa.fa-group
             span Teams
-        li.header FAVORITES
-        li: a href="#"
-          i.fa.fa-link
-          span project-1
-        li: a href="#"
-          i.fa.fa-link
-          span project-2
+
+        if favorites
+          li.header FAVORITES
+          each favorites as |project|
+            li: link-to "dashboard.account.project" project
+              i.fa.fa-book
+              span = project.name
+

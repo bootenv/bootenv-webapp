@@ -25,7 +25,10 @@ export default Ember.Route.extend({
   },
 
   serialize(model) {
-    return { account_name: model.get("account.name"), project_name: model.get("name") };
+    return {
+      account_name: model.get("account.name"),
+      project_name: model.get("name") || "new"
+    };
   }
 
 });

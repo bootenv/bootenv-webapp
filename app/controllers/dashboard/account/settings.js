@@ -4,15 +4,18 @@ export default Ember.Controller.extend({
 
   actions: {
     save() {
+      var user = this.store.getById("user", this.get("session.currentUser.id"));
+      this.get("model.owners").pushObject(user);
       this.get("model").save().then((account) => {
+        this.set("session.currentAccountId", account.get("id"));
+
         if (this.get("model.personal")) {
-          var user = this.store.getById("user", this.get("session.currentUser.id"));
           user.set("email", this.get("model.email"));
           user.save().then(() => {
-            this.transitionTo("dashboard.account", account);
+            this.transitionTo("dashboard");
           });
         } else {
-          this.transitionTo("dashboard.account", account);
+          this.transitionTo("dashboard");
         }
       }).catch(() => {
         this.set("failed", true);

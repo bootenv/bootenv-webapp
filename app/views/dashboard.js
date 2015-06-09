@@ -6,7 +6,7 @@ export default Ember.View.extend({
   classNames: ["wrapper"],
 
   didInsertElement() {
-    initAdminLte();
+    setTimeout(initAdminLte);
   }
 
 });

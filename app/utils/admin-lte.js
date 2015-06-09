@@ -1,16 +1,6 @@
-// The code in this file is mostly copied verbatim from admin-lte's app.js (without fastclick)
-
-export function closeTree(checkElement) {
-  if ((checkElement.is('.treeview-menu')) && (checkElement.is(':visible'))) {
-    checkElement.slideUp('normal', function () {
-      checkElement.removeClass('menu-open');
-      //Fix the layout in case the sidebar stretches over the height of the window
-      //_this.layout.fix();
-    });
-    checkElement.parent("li").removeClass("active");
-  }
-}
-
+// The code in this file is mostly copied verbatim from admin-lte's app.js except for:
+// - fastclick: loaded as an addon
+// - treeViewControls: using bootstrap collapse for that
 export function initAdminLte() {
   /* jshint ignore:start */
   //Easy access to options
@@ -18,9 +8,6 @@ export function initAdminLte() {
 
   //Activate the layout maker
   $.AdminLTE.layout.activate();
-
-  //Enable sidebar tree view controls
-  $.AdminLTE.tree('.sidebar');
 
   //Enable control sidebar
   if (o.enableControlSidebar) {
