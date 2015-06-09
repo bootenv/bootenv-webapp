@@ -2,7 +2,43 @@ project-header project=model
 
 section.content
   .row
-    .col-xs-12
+    .col-xs-6
+      .box
+        .box-header
+          h3.box-title
+            | Configuration definition
+          .box-tools
+            .input-group
+              input.form-control.input-sm.pull-right type="text" name="table_search" style="width: 150px;" placeholder="Filter"
+              .input-group-btn
+                button.btn.btn-sm.btn-default: i.fa.fa-search
+        .box-body.table-responsive.no-padding
+          table.table.table-hover.table-striped
+            tbody
+              tr
+                th Secret
+                th Name
+                th Default value
+                th
+              each property in model.properties
+                tr
+                  td = property.name
+                  td = property.defaultValue
+                  td.text-center
+                    if property.secret
+                      i.fa.fa-lock
+                    else
+                      i.fa.fa-unlock
+            tfoot
+              tr
+                td.text-center: i-check
+                td: input value=property.name
+                td: input value=property.defaultValue
+                td: link-to "dashboard" class="btn btn-xs btn-flat bg-olive"
+                    i.fa.fa-plus
+                    |  Add
+
+    .col-xs-6
       .box
         .box-header
           h3.box-title
@@ -17,10 +53,11 @@ section.content
         .box-body.table-responsive.no-padding
           table.table.table-hover.table-striped
             tbody
-              tr
-                th Name
-                th Description
-                th
+              if model.environments
+                tr
+                  th Name
+                  th Description
+                  th
               each environment in model.environments
                 tr
                   td: link-to 'dashboard.account.project.index' environment
@@ -29,4 +66,7 @@ section.content
                   td: link-to 'dashboard.account.project.settings' environment
                     i.fa.fa-pencil
                     |  Settings
+              else
+                tr
+                  td No environments defined. Go ahead a create a new one!
 

@@ -14,19 +14,25 @@ section.content
             h3.box-title
               i.fa.fa-user
               if model.personal
-                |  Account
+                |  Personal Account
               else
                 |  Organization
           .box-body
             if failed
               .alert.alert-danger There was an error saving your account. Please try again in a few moments.
             fm-field type="text" value=model.name label="Name *" required=true
+            if model.personal
+              fm-field type="text" value=session.currentUser.fullName label="Full Name"
             fm-field type="text" value=model.description label="Description"
             fm-field type="email" value=model.email label="Email"
             fm-field type="text" value=model.url label="URL" placeholder="http://"
-            .checkbox.pull-left: label
+            .checkbox: label
               i-check checked=model.public
               |  Public
           .box-footer
-            button.btn.btn-danger.pull-left type="submit" click="delete" Delete
+            if model.id
+              unless model.personal
+                button.btn.btn-danger.pull-left type="submit" click="delete" Delete
+            else
+              button.btn.btn-warn.pull-left type="submit" click="delete" Cancel
             button.btn.btn-info.pull-right type="submit" Save

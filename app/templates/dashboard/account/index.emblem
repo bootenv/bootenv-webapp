@@ -18,7 +18,7 @@ section.content
         .box-body.table-responsive.no-padding
           table.table.table-hover.table-striped
             tbody
-              if projects
+              if model.projects
                 tr
                   th Name
                   th Description
