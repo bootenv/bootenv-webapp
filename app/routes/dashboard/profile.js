@@ -3,9 +3,11 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
   beforeModel() {
-    if (this.get("session.currentAccount")) {
-      this.transitionTo('dashboard');
-    }
+    this.get("session.currentAccount").then((account) => {
+      if (account) {
+        this.transitionTo('dashboardçç');
+      }
+    });
   }
 
 });

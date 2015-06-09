@@ -21,8 +21,8 @@ export default Ember.Controller.extend({
 
     delete() {
       if (!this.get("model.id") || confirm("Are you sure?")) {
-        this.set("session.currentAccount", this.store.all("account").get("firstObject"));
         this.get("model").destroyRecord().then(() => {
+          this.session.resetCurrentAccount();
           this.transitionTo("dashboard");
         });
       }

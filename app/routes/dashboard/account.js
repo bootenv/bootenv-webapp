@@ -27,7 +27,7 @@ export default Ember.Route.extend({
 
   afterModel(model) {
     if (model.get && model.get("name") !== "new") {
-      this.set("session.currentAccount", model);
+      this.set("session.currentAccountId", model.get("id"));
     }
   }
 
