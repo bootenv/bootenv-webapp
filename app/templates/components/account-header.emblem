@@ -1,5 +1,5 @@
 section.content-header: h1
-  span.header-icon.fa-stack
+  .header-icon.fa-stack
     if account.personal
       i.fa.fa-user.fa-stack-1x
     else
@@ -10,17 +10,20 @@ section.content-header: h1
     else
       i.fa.fa-lock.fa-stack-1x.is-public
 
-  if account.id
+  .header-text
     if template
-      link-to "dashboard.account" account
-        = account.name
-      |  /
+      if account.id
+        .path-part
+          link-to "dashboard.account" account
+            = account.name
+      .end-part
+        strong = yield
     else
-      strong = account.name
-      link-to "dashboard.account.settings" account
-        i.fa.fa-cog
-  '
-  strong = yield
+      .end-part
+        strong = account.name
+        link-to "dashboard.account.settings" account
+          i.fa.fa-cog
+
   unless template
-    '
-    small = account.description
+    if account.description
+      small = account.description

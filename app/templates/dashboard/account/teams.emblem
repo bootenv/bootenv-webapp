@@ -3,12 +3,12 @@ account-header account=model
 
 section.content
   .row
-    .col-xs-6
+    .col-md-6
       / People box
       .box.box-primary
         .box-header.with-border
           h3.box-title People
-          .box-tools.pull-right
+          .box-tools.hidden-xs.hidden-sm.pull-right
             .label.label-default = model.owners.length
         .box-body.no-padding
           ul.users-list
@@ -22,7 +22,7 @@ section.content
             i.fa.fa-cog
             |  Manage users
 
-    .col-xs-6
+    .col-md-6
       / Teams box
       .box.box-primary
         .box-header

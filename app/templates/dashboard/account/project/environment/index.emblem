@@ -2,12 +2,12 @@ environment-header environment=model
 
 section.content
   .row
-    .col-xs-8
+    .col-md-8
       .box.box-primary
         .box-header
           h3.box-title
             | Environment variables values
-          .box-tools
+          .box-tools.hidden-xs.hidden-sm
             .input-group
               input.form-control.input-sm.pull-right type="text" name="table_search" style="width: 150px;" placeholder="Filter"
               .input-group-btn
@@ -39,7 +39,7 @@ section.content
         .box-header
           h3.box-title
             | Extra Values
-          .box-tools
+          .box-tools.hidden-xs.hidden-sm
             .input-group
               input.form-control.input-sm.pull-right type="text" name="table_search" style="width: 150px;" placeholder="Filter"
               .input-group-btn
@@ -67,7 +67,7 @@ section.content
                     i.fa.fa-plus
                     |  Add
 
-    .col-xs-4
+    .col-md-4
       .box.box-info
         .box-header
           h3.box-title

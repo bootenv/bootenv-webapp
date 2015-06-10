@@ -1,5 +1,5 @@
 section.content-header: h1
-  span.header-icon.fa-stack
+  .header-icon.fa-stack
     i.fa.fa-book.fa-stack-1x
 
     if project.public
@@ -7,25 +7,25 @@ section.content-header: h1
     else
       i.fa.fa-lock.fa-stack-1x.is-public
 
-  link-to "dashboard.account" project.account
-    = project.account.name
+  .header-text
+    .path-part
+      link-to "dashboard.account" project.account
+        = project.account.name
 
-  if template
-    if project.id
-      |  /
-      '
-      link-to "dashboard.account.project" project
-        = project.name
-    |  /
-  else
-    |  /
-    '
-    strong = project.name
-    link-to "dashboard.account.project.settings" project
-      i.fa.fa-cog
-  '
-  strong = yield
+    if template
+      if project.id
+        .path-part
+          link-to "dashboard.account.project" project
+            = project.name
+      .end-part
+        strong = yield
+    else
+      .end-part
+        strong = project.name
+        link-to "dashboard.account.project.settings" project
+          i.fa.fa-cog
+
   unless template
-    '
-    small = project.description
+    if project.description
+      small = project.description
 

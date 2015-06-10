@@ -2,14 +2,14 @@ project-header project=model
 
 section.content
   .row
-    .col-xs-6
+    .col-md-6
       .box.box-primary
         .box-header
           h3.box-title
             | Environments &nbsp;
             link-to "dashboard.account.project.environment.settings" "new" class="btn btn-xs btn-flat bg-olive"
               i.fa.fa-plus
-          .box-tools
+          .box-tools.hidden-xs.hidden-sm
             .input-group
               input.form-control.input-sm.pull-right type="text" name="table_search" style="width: 150px;" placeholder="Filter"
               .input-group-btn
@@ -33,12 +33,12 @@ section.content
                 tr
                   td No environments defined. Go ahead a create a new one!
 
-    .col-xs-6
+    .col-md-6
       .box
         .box-header
           h3.box-title
             | Environment variables
-          .box-tools
+          .box-tools.hidden-xs.hidden-sm
             .input-group
               input.form-control.input-sm.pull-right type="text" name="table_search" style="width: 150px;" placeholder="Filter"
               .input-group-btn

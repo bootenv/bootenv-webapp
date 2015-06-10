@@ -1,5 +1,5 @@
 section.content-header: h1
-  span.header-icon.fa-stack
+  .header-icon.fa-stack
     i.fa.fa-book.fa-stack-1x
 
     if environment.public
@@ -7,31 +7,29 @@ section.content-header: h1
     else
       i.fa.fa-lock.fa-stack-1x.is-public
 
-  link-to "dashboard.account" environment.project.account
-    = environment.project.account.name
+  .header-text
+    .path-part
+      link-to "dashboard.account" environment.project.account
+        = environment.project.account.name
 
-  |  /
-  '
+    .path-part
+      link-to "dashboard.account.project" environment.project
+        = environment.project.name
 
-  link-to "dashboard.account.project" environment.project
-    = environment.project.name
+    if template
+      if environment.id
+        .path-part
+          link-to "dashboard.account.project.environment" environment
+            = environment.name
+      .end-part
+      strong = yield
+    else
+      .end-part
+        strong = environment.name
+        link-to "dashboard.account.project.environment.settings" environment
+          i.fa.fa-cog
 
-  if template
-    if environment.id
-      |  /
-      '
-      link-to "dashboard.account.project.environment" environment
-        = environment.name
-    |  /
-  else
-    |  /
-    '
-    strong = environment.name
-    link-to "dashboard.account.project.environment.settings" environment
-      i.fa.fa-cog
-  '
-  strong = yield
   unless template
-    '
-    small = environment.description
+    if environment.description
+      small = environment.description
 
