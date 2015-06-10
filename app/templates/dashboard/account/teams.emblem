@@ -5,25 +5,18 @@ section.content
   .row
     .col-xs-6
       / People box
-      .box.box-info
+      .box.box-primary
         .box-header.with-border
           h3.box-title People
           .box-tools.pull-right
-            .label.label-default 8 Members
+            .label.label-default = model.owners.length
         .box-body.no-padding
           ul.users-list
-            li
-              gravatar-image email="x" class="img-circle" alt="User Image" defaultImage="retro"
-              a class="users-list-name" href="#" Somebody
-              span.users-list-type Owner
-            li
-              gravatar-image email="x" class="img-circle" alt="User Image" defaultImage="retro"
-              a class="users-list-name" href="#" Somebody
-              span.users-list-type Owner
-            li
-              gravatar-image email="x" class="img-circle" alt="User Image" defaultImage="retro"
-              a class="users-list-name" href="#" Somebody
-              span.users-list-type User
+            each model.owners as |owner|
+              li
+                gravatar-image email=owner.email class="img-circle" alt="Owner Icon" defaultImage="retro"
+                a class="users-list-name" href="#" = owner.fullName
+                span.users-list-type Owner
         .box-footer
           a href="#"
             i.fa.fa-cog
@@ -31,18 +24,18 @@ section.content
 
     .col-xs-6
       / Teams box
-      .box.box-info
+      .box.box-primary
         .box-header
           h3.box-title Teams
         .box-body.table-responsive.no-padding
           table.table.table-hover.table-striped
             tbody
-              tr
-                td Some group
-              tr
-                td Some group
-              tr
-                td Some group
+              each model.teams as |team|
+                tr
+                  td = team.name
+              else
+                tr
+                  td No teams. You can create a new one here.
         .box-footer
           a href="#"
             i.fa.fa-cog

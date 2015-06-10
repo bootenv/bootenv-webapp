@@ -17,16 +17,19 @@ section.content
                 button.btn.btn-sm.btn-default: i.fa.fa-search
         .box-body.table-responsive.no-padding
           table.table.table-hover.table-striped
-            tbody
-              if model.projects
+            if model.projects
+              thead
                 tr
                   th Name
                   th Description
                   th Environments
+            tbody
               each project in model.projects
                 tr
-                  td: link-to 'dashboard.account.project.index' project
-                    = project.name
+                  td
+                    lock-icon public=project.public
+                    link-to 'dashboard.account.project.index' project
+                      = project.name
                   td = project.description
                   td.environments
                     span.label.label-success prod

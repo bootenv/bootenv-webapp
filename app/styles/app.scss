@@ -91,14 +91,6 @@
       top: 10px;
       font-size: 20px;
     }
-
-    .fa-lock {
-      color: $red;
-    }
-
-    .fa-unlock {
-      color: $green;
-    }
   }
 
   .fa-cog {
@@ -136,4 +128,12 @@ td > i.fa {
 
 .environments .label {
   margin-right: 0.5em;
+}
+
+.fa-lock {
+  color: $red;
+}
+
+.fa-unlock {
+  color: $green;
 }

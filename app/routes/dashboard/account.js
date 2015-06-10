@@ -11,11 +11,7 @@ export default Ember.Route.extend({
       return this.store.createRecord("account");
     } else {
       return this.store.find("account", query).then((accounts) => {
-        // TODO remove this hack to load the projects once we get the list of ids from the api
-        var account = accounts.get("firstObject");
-        return this.store.find("project", { accountId: account.get("id") }).then(() => {
-          return account;
-        });
+        return accounts.get("firstObject");
       }).catch(() => {
         // TODO: show an "Account not found" message
         this.session.resetCurrentAccount();
@@ -35,6 +31,10 @@ export default Ember.Route.extend({
       this.transitionTo("dashboard.account.settings", model);
     } else {
       this.set("session.currentAccountId", model.get("id"));
+      // TODO remove this hack to load the projects once we get the list of ids from the api
+      if (!model.get("projects.length")) {
+        return this.store.find("project", { accountId: model.get("id") });
+      }
     }
   }
 

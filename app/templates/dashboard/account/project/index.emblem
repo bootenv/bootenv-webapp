@@ -3,47 +3,11 @@ project-header project=model
 section.content
   .row
     .col-xs-6
-      .box
-        .box-header
-          h3.box-title
-            | Configuration definition
-          .box-tools
-            .input-group
-              input.form-control.input-sm.pull-right type="text" name="table_search" style="width: 150px;" placeholder="Filter"
-              .input-group-btn
-                button.btn.btn-sm.btn-default: i.fa.fa-search
-        .box-body.table-responsive.no-padding
-          table.table.table-hover.table-striped
-            tbody
-              tr
-                th Secret
-                th Name
-                th Default value
-                th
-              each property in model.properties
-                tr
-                  td = property.name
-                  td = property.defaultValue
-                  td.text-center
-                    if property.secret
-                      i.fa.fa-lock
-                    else
-                      i.fa.fa-unlock
-            tfoot
-              tr
-                td.text-center: i-check
-                td: input value=property.name
-                td: input value=property.defaultValue
-                td: link-to "dashboard" class="btn btn-xs btn-flat bg-olive"
-                    i.fa.fa-plus
-                    |  Add
-
-    .col-xs-6
-      .box
+      .box.box-primary
         .box-header
           h3.box-title
             | Environments &nbsp;
-            link-to "dashboard" class="btn btn-xs btn-flat bg-olive"
+            link-to "dashboard.account.project.environment.settings" "new" class="btn btn-xs btn-flat bg-olive"
               i.fa.fa-plus
           .box-tools
             .input-group
@@ -52,21 +16,53 @@ section.content
                 button.btn.btn-sm.btn-default: i.fa.fa-search
         .box-body.table-responsive.no-padding
           table.table.table-hover.table-striped
-            tbody
-              if model.environments
+            if model.environments
+              thead
                 tr
                   th Name
                   th Description
-                  th
+            tbody
               each environment in model.environments
                 tr
-                  td: link-to 'dashboard.account.project.index' environment
-                    = environment.name
+                  td
+                    lock-icon public=environment.public
+                    link-to 'dashboard.account.project.environment' environment
+                      = environment.name
                   td = project.description
-                  td: link-to 'dashboard.account.project.settings' environment
-                    i.fa.fa-pencil
-                    |  Settings
               else
                 tr
                   td No environments defined. Go ahead a create a new one!
+
+    .col-xs-6
+      .box
+        .box-header
+          h3.box-title
+            | Environment variables
+          .box-tools
+            .input-group
+              input.form-control.input-sm.pull-right type="text" name="table_search" style="width: 150px;" placeholder="Filter"
+              .input-group-btn
+                button.btn.btn-sm.btn-default: i.fa.fa-search
+        .box-body.table-responsive.no-padding
+          table.table.table-hover.table-striped
+            thead
+              tr
+                th Secret
+                th Name
+                th Default value
+                th
+            tbody
+              each property in model.properties
+                tr
+                  td = property.name
+                  td = property.defaultValue
+                  td.text-center: lock-icon secret=property.secret
+            tfoot
+              tr
+                td.text-center: i-check
+                td: input value=property.name
+                td: input value=property.defaultValue
+                td: link-to "dashboard" class="btn btn-xs btn-flat bg-olive"
+                    i.fa.fa-plus
+                    |  Add
 

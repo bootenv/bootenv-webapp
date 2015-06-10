@@ -14,12 +14,8 @@ export default Ember.Route.extend({
         account: account
       });
     } else {
-      return this.store.find("project", query).then((projects) =>{
-        // TODO remove this hack to load the projects once we get the list of ids from the api
-        var project = projects.get("firstObject");
-        return this.store.find("environment", { projectId: project.get("id") }).then(() => {
-          return project;
-        });
+      return this.store.find("project", query).then((projects) => {
+        return projects.get("firstObject");
       });
     }
   },
@@ -29,6 +25,13 @@ export default Ember.Route.extend({
       account_name: model.get("account.name"),
       project_name: model.get("name") || "new"
     };
+  },
+
+  afterModel(model) {
+    // TODO remove this hack to load the projects once we get the list of ids from the api
+    if (!model.get("environments.length")) {
+      return this.store.find("environment", { projectId: model.get("id") });
+    }
   }
 
 });

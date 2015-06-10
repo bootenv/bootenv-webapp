@@ -6,7 +6,7 @@ aside.main-sidebar
 
         active-link: link-to "dashboard.account.index" session.currentAccount
           i.fa.fa-book
-          span Overview
+          span Projects
 
         unless session.currentAccount.personal
           active-link: link-to "dashboard.account.teams" session.currentAccount

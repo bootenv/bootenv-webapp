@@ -21,7 +21,7 @@ Router.map(function() {
         this.route('settings');
 
         this.route('environment', { path: ":environment_name" }, function() {
-          this.route('edit');
+          this.route('settings');
         });
       });
     });

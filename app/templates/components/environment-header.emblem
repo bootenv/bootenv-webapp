@@ -1,0 +1,37 @@
+section.content-header: h1
+  span.header-icon.fa-stack
+    i.fa.fa-book.fa-stack-1x
+
+    if environment.public
+      i.fa.fa-unlock.fa-stack-1x.is-public
+    else
+      i.fa.fa-lock.fa-stack-1x.is-public
+
+  link-to "dashboard.account" environment.project.account
+    = environment.project.account.name
+
+  |  /
+  '
+
+  link-to "dashboard.account.project" environment.project
+    = environment.project.name
+
+  if template
+    if environment.id
+      |  /
+      '
+      link-to "dashboard.account.project.environment" environment
+        = environment.name
+    |  /
+  else
+    |  /
+    '
+    strong = environment.name
+    link-to "dashboard.account.project.environment.settings" environment
+      i.fa.fa-cog
+  '
+  strong = yield
+  unless template
+    '
+    small = environment.description
+

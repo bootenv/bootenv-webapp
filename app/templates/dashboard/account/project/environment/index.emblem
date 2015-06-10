@@ -1,0 +1,107 @@
+environment-header environment=model
+
+section.content
+  .row
+    .col-xs-8
+      .box.box-primary
+        .box-header
+          h3.box-title
+            | Environment variables values
+          .box-tools
+            .input-group
+              input.form-control.input-sm.pull-right type="text" name="table_search" style="width: 150px;" placeholder="Filter"
+              .input-group-btn
+                button.btn.btn-sm.btn-default: i.fa.fa-search
+        .box-body.table-responsive.no-padding
+          table.table.table-hover.table-striped
+            if model.properties
+              thead
+                tr
+                  th Secret
+                  th Name
+                  th Value
+                  th
+            tbody
+              each variable in model.variables
+                tr
+                  td: lock-icon secret=variable.secret
+                  td = variable.name
+                  td: input value=variable.value
+              else
+                tr
+                  td
+                   | You have no environment variables on your project. Create some
+                   link-to "dashboard.account.project" model.project
+                     |  here
+                   |.
+
+      .box
+        .box-header
+          h3.box-title
+            | Extra Values
+          .box-tools
+            .input-group
+              input.form-control.input-sm.pull-right type="text" name="table_search" style="width: 150px;" placeholder="Filter"
+              .input-group-btn
+                button.btn.btn-sm.btn-default: i.fa.fa-search
+        .box-body.table-responsive.no-padding
+          table.table.table-hover.table-striped
+            thead
+              tr
+                th Secret
+                th Name
+                th Value
+                th
+            tbody
+              each variable in model.variable
+                tr
+                  td: lock-icon secret=varable.secret
+                  td = variable.name
+                  td: input value=variable.value
+            tfoot
+              tr
+                td.text-center: i-check value=newProperty.secret
+                td: input value=newProperty.name
+                td: input value=newProperty.value
+                td: link-to "dashboard" class="btn btn-xs btn-flat bg-olive"
+                    i.fa.fa-plus
+                    |  Add
+
+    .col-xs-4
+      .box.box-info
+        .box-header
+          h3.box-title
+            | Export
+        .box-body
+          | Download as:
+          '
+          select
+            option
+            option Yaml
+            option JSON
+            option Shell
+            option CSV
+
+      .box
+        .box-header
+          h3.box-title
+            | Tokens
+        .box-body.table-responsive.no-padding
+          table.table.table-hover.table-striped
+            tbody
+              tr
+                th Name
+                th Date
+              each token in model.tokens
+                tr
+                  td = token.name
+                  td = token.date
+            tfoot
+              tr
+                td colspan="2"
+                  .input-group.input-group-sm
+                    input.form-control value=newToken.name
+                    .input-group-btn
+                      button.btn.btn-flat.btn-primary click="generateToken"
+                        i.fa.fa-plus
+                        |  Generate
