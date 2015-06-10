@@ -43,7 +43,10 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+```
+ember build --prod
+rsync -avz --delete dist/ user@some-host-or-ip:bootenv.yourdomain.com
+```
 
 ## Further Reading / Useful Links
 

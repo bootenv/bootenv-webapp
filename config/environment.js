@@ -46,7 +46,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.API_HOST = "http://api.bootenv.com";
   }
 
   ENV['simple-auth'] = {
