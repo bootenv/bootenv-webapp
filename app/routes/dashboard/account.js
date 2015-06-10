@@ -7,7 +7,7 @@ export default Ember.Route.extend({
       name: params.account_name
     };
 
-    if (query.name === "new") {
+    if (query.name === "~new") {
       return this.store.createRecord("account");
     } else {
       return this.store.find("account", query).then((accounts) => {
@@ -22,7 +22,7 @@ export default Ember.Route.extend({
 
   serialize(model) {
     return {
-      account_name: model.get("name") || "new"
+      account_name: model.get("name") || "~new"
     };
   },
 

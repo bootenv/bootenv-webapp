@@ -1,8 +1,8 @@
 environment-header environment=model
   if model.id
-    | settings
+    | ~settings
   else
-    | create
+    | new environment
 
 section.content
   .row
@@ -23,9 +23,8 @@ section.content
               i-check checked=model.public
               |  Public
           .box-footer
-            button.btn.btn-danger.pull-left type="button" click="delete"
-              if model.id
-                | Delete
-              else
-                | Cancel
+            if model.id
+              button.btn.btn-danger.pull-left type="button" click="delete" Delete
+            else
+              button.btn.btn-warning.pull-left type="button" click="delete" Cancel
             button.btn.btn-info.pull-right type="submit" Save

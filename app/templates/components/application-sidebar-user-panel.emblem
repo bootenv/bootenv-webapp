@@ -14,7 +14,7 @@ ul.collapse.treeview-menu#account-menu
           gravatar-image email=account.email class="img-circle" alt=account.name title=account.name defaultImage="retro"
         .pull-left.info
           p = account.name
-  li.add: link-to "dashboard.account.settings" "new"
+  li.add: link-to "dashboard.account.settings" "~new"
     i.fa.fa-plus
     | Add organization
 

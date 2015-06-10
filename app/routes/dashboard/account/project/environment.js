@@ -9,7 +9,7 @@ export default Ember.Route.extend({
       name: params.environment_name
     };
 
-    if (query.name === "new") {
+    if (query.name === "~new") {
       return this.store.createRecord("environment", {
         project: project
       });
@@ -24,7 +24,7 @@ export default Ember.Route.extend({
     return {
       account_name: model.get("project.account.name"),
       project_name: model.get("project.name"),
-      environment_name: model.get("name") || "new"
+      environment_name: model.get("name") || "~new"
     };
   }
 

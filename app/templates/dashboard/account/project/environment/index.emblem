@@ -30,7 +30,7 @@ section.content
               else
                 tr
                   td
-                   | You have no environment variables on your project. Create some
+                   | You have no project environment variables. Create some
                    link-to "dashboard.account.project" model.project
                      |  here
                    |.

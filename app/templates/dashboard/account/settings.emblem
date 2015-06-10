@@ -1,8 +1,11 @@
 account-header account=model
   if model.id
-    | settings
+    | ~settings
   else
-    | create
+    if model.personal
+      |  new personal account
+    else
+      |  new organization
 
 section.content
   .row
@@ -34,5 +37,5 @@ section.content
               unless model.personal
                 button.btn.btn-danger.pull-left type="button" click="delete" Delete
             else
-              button.btn.btn-warn.pull-left type="button" click="delete" Cancel
+              button.btn.btn-warning.pull-left type="button" click="delete" Cancel
             button.btn.btn-info.pull-right type="submit" Save

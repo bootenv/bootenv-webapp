@@ -1,6 +1,6 @@
 section.content-header: h1
   .header-icon.fa-stack
-    i.fa.fa-book.fa-stack-1x
+    i.fa.fa-server.fa-stack-1x
 
     if environment.public
       i.fa.fa-unlock.fa-stack-1x.is-public

@@ -11,17 +11,17 @@ Router.map(function() {
   this.route('signup');
 
   this.route('dashboard', { path: '/' }, function() {
-    this.route('profile');
+    this.route('profile', { path: "~profile" });
 
     this.route('account', { path: ":account_name" }, function() {
-      this.route('teams');
-      this.route('settings');
+      this.route('teams', { path: "~teams" });
+      this.route('settings', { path: "~settings" });
 
       this.route('project', { path: ":project_name" }, function() {
-        this.route('settings');
+        this.route('settings', { path: "~settings" });
 
         this.route('environment', { path: ":environment_name" }, function() {
-          this.route('settings');
+          this.route('settings', { path: "~settings" });
         });
       });
     });
