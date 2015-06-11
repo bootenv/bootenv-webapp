@@ -11,25 +11,54 @@ section.content
   .row
     .col-md-3
     .col-md-6
-      .box.box-primary
+      .box class=model.personal:box-solid:box-primary
         fm-form role="form" action="save"
-          .box-header.with-border
-            h3.box-title
-              i.fa.fa-user
-              if model.personal
-                |  Personal Account
-              else
+          if model.personal
+            .box-body.no-padding
+              .nav-tabs-custom role="tabpanel"
+                ul.nav.nav-tabs  role="tablist"
+                  li.active role="presentation"
+                    a href="#main" aria-controls="main" role="tab" data-toggle="tab"
+                        i.fa.fa-user
+                        |  Personal Account
+                  if model.personal
+                    li role="presentation"
+                      a href="#access" aria-controls="access" role="tab" data-toggle="tab"
+                        i.fa.fa-sign-in
+                        |  Access
+
+                / Tab panes
+                .tab-content
+                  #main.tab-pane.active role="tabpanel"
+                    partial 'partials/account-settings'
+
+                  #access.tab-pane role="tabpanel"
+                    fm-field type="text" value=session.currentUser.password label="Change your password" required=true
+                    label Connect with other accounts:
+                    .account
+                      a.btn.btn-block.btn-social.btn-github.btn-flat href="/"
+                        i.fa.fa-github
+                        | GitHub
+                      i.fa.fa-check.fa-fw
+                    .account
+                      a.btn.btn-block.btn-social.btn-twitter.btn-flat href="/"
+                        i.fa.fa-facebook
+                        | Twitter
+                      i.fa.fa-unlink.fa-fw
+                    .account
+                      a.btn.btn-block.btn-social.btn-google-plus.btn-flat href="/"
+                        i.fa.fa-google-plus
+                        | Google+
+                      i.fa.fa-check.fa-fw
+
+          else
+            .box-header.with-border
+              h3.box-title
+                i.fa.fa-user
                 |  Organization
-          .box-body
-            fm-field type="text" value=model.name label="Name *" required=true
-            if model.personal
-              fm-field type="text" value=session.currentUser.fullName label="Full Name"
-            fm-field type="text" value=model.description label="Description"
-            fm-field type="email" value=model.email label="Email"
-            fm-field type="text" value=model.url label="URL" placeholder="http://"
-            .checkbox: label
-              i-check checked=model.public
-              |  Public
+            .box-body
+              partial 'partials/account-settings'
+
           .box-footer
             if model.id
               unless model.personal

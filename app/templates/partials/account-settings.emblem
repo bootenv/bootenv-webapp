@@ -1,0 +1,10 @@
+fm-field type="text" value=model.name label="Username *" required=true
+if model.personal
+  fm-field type="text" value=session.currentUser.fullName label="Full Name"
+else
+  fm-field type="text" value=model.description label="Description"
+fm-field type="email" value=model.email label="Email"
+fm-field type="text" value=model.url label="URL" placeholder="http://"
+.checkbox: label
+  i-check checked=model.public
+  |  Public
