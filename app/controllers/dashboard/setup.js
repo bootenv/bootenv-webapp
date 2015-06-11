@@ -19,7 +19,11 @@ export default Ember.Controller.extend({
             this.transitionTo("dashboard");
           });
         }).catch(() => {
-          this.set("failed", true);
+          this.notifications.addNotification({
+            message: "Could not save your changes, please try again in a few moments.",
+            type: "error",
+            autoClear: true
+          });
         });
       });
     }

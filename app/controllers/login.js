@@ -13,10 +13,19 @@ export default Ember.Controller.extend({
       var authenticator = 'simple-auth-authenticator:token';
       var data = this.getProperties('identification', 'password');
 
-      this.set("loginFailed", false);
-
       return this.get('session').authenticate(authenticator, data).catch((result) => {
-        this.set("loginFailed", true);
+        var message = "Error loging in. Please try again in a few moments.";
+
+        if (result && result.error && result.error.code === 'LOGIN_FAILED') {
+          message = "Invalid username or password";
+        }
+
+        this.notifications.addNotification({
+          message: message,
+          type: "error",
+          autoClear: true
+        });
+
         throw result;
       });
     }

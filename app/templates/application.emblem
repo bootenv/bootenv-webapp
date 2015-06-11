@@ -1,0 +1,6 @@
+.notifications-container
+  each notifications as |notification|
+    notification-message notification=notification
+
+outlet
+

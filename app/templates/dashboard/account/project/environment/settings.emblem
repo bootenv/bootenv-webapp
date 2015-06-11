@@ -15,8 +15,6 @@ section.content
               i.fa.fa-user
               |  Environment
           .box-body
-            if failed
-              .alert.alert-danger There was an error saving your environment. Please try again in a few moments.
             fm-field type="text" value=model.name label="Name *" required=true
             fm-field type="text" value=model.description label="Description" required=true
             .checkbox: label

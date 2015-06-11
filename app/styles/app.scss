@@ -133,6 +133,17 @@
  * FORMS
  ***********************************************************************/
 
+.nav-tabs-custom > .nav-tabs {
+  li > a {
+    font-size: 18px;
+    padding: 5px 15px 10px;
+  }
+
+  li:first-child > a {
+    padding-left: 9px;
+  }
+}
+
 .box-body .checkbox label {
   padding-left: 0;
 }

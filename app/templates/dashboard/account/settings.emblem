@@ -21,8 +21,6 @@ section.content
               else
                 |  Organization
           .box-body
-            if failed
-              .alert.alert-danger There was an error saving your account. Please try again in a few moments.
             fm-field type="text" value=model.name label="Name *" required=true
             if model.personal
               fm-field type="text" value=session.currentUser.fullName label="Full Name"

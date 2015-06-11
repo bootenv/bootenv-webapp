@@ -11,7 +11,7 @@ Router.map(function() {
   this.route('signup');
 
   this.route('dashboard', { path: '/' }, function() {
-    this.route('profile', { path: "~profile" });
+    this.route('setup', { path: "~setup" });
 
     this.route('account', { path: ":account_name" }, function() {
       this.route('teams', { path: "~teams" });

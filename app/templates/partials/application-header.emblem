@@ -34,18 +34,13 @@ header.main-header
               gravatar-image email=session.currentUser.email class="img-circle" alt="Icon" defaultImage="retro"
               p
                 = session.currentUser.fullName
-                small Member since Nov. 2012
-            / Menu Body
-            li.user-body
-              .col-xs-4.text-center
-                a href="#" Accounts
-              .col-xs-4.text-center
-                a href="#" Security
-              .col-xs-4.text-center
-                a href="#" Friends
+                small
+                  | Member since {{moment session.currentUser.created 'MM/YYYY'}}
             / Menu Footer
             li.user-footer
-              .pull-left
-                a href="#" class="btn btn-default btn-flat" Profile
+              if session.currentUser.personalAccount
+                .pull-left
+                  link-to "dashboard.account.settings" session.currentUser.personalAccount class="btn btn-default btn-flat"
+                    | Profile
               .pull-right
                 a.btn.btn-default.btn-flat{action "invalidateSession"} Sign out

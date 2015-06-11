@@ -7,7 +7,11 @@ export default Ember.Controller.extend({
       this.get("model").save().then((project) => {
         this.transitionTo("dashboard.account.project", project);
       }).catch(() => {
-        this.set("failed", true);
+        this.notifications.addNotification({
+          message: "Could not save your changes, please try again in a few moments.",
+          type: "error",
+          autoClear: true
+        });
       });
     },
 
