@@ -5,5 +5,6 @@ export default DS.Model.extend({
   public: DS.attr('boolean'),
   description: DS.attr('string'),
   account: DS.belongsTo("account", { async: true }),
-  environments: DS.hasMany('environment', { async: true })
+  environments: DS.hasMany('environment', { async: true }),
+  variables: DS.hasMany("variableDefinition")
 });

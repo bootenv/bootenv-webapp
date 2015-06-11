@@ -33,7 +33,8 @@ section.content
                     partial 'partials/account-settings'
 
                   #access.tab-pane role="tabpanel"
-                    fm-field type="text" value=session.currentUser.password label="Change your password" required=true
+                    fm-field type="password" value=session.currentUser.password label="New password" required=true
+                    fm-field type="password" value=passwordConfirm label="The new password again" required=true
                     label Connect with other accounts:
                     .account
                       a.btn.btn-block.btn-social.btn-github.btn-flat href="/"

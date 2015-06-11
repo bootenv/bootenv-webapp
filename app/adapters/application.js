@@ -1,12 +1,16 @@
 import Ember from 'ember';
 import DS from 'ember-data';
-import ENV from '../config/environment';
+import ENV from 'bootenv-webapp/config/environment';
 
 export default DS.RESTAdapter.extend({
 
   host: ENV.API_HOST,
 
   namespace: 'api',
+
+  generateIdForRecord: function() {
+    return ObjectId(); // jshint ignore:line
+  },
 
   findQuery(store, type, query) {
     var loopbackQuery = {};

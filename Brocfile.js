@@ -32,5 +32,6 @@ var app = new EmberApp({
 // along with the exports of each module as its value.
 
 app.import('bower_components/admin-lte/dist/js/app.js');
+app.import('bower_components/objectid.js/src/main/javascript/Objectid.js');
 
 module.exports = app.toTree();

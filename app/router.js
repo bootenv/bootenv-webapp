@@ -35,6 +35,8 @@ Ember.Route.reopen({
   }.property(),
 
   activate() {
+    this._super.apply(this, arguments);
+
     var cssClass = this.get("cssClass");
     if (cssClass && cssClass !== 'application') {
       Ember.$('body').addClass(cssClass);
@@ -46,10 +48,13 @@ Ember.Route.reopen({
     if (cssClass) {
       Ember.$('body').removeClass(cssClass);
     }
+
+    this._super.apply(this, arguments);
   },
 
-  afterModel(model, transition) {
-    this._super(model, transition);
+  afterModel() {
+    this._super.apply(this, arguments);
+
     Ember.$("#account-menu").collapse('hide');
   }
 

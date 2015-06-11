@@ -180,8 +180,18 @@
  * OTHER
  ***********************************************************************/
 
-td > i.fa {
-  margin-right: 0.5em;
+td {
+  & > i.fa {
+    margin-right: 0.5em;
+  }
+
+  &.text-center > i.fa {
+    margin-right: 0;
+  }
+
+  i.action {
+    cursor: pointer;
+  }
 }
 
 .users-list-type {

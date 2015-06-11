@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { handleError } from 'bootenv-webapp/utils/notifications';
 
 export default Ember.Controller.extend({
 
@@ -17,14 +18,8 @@ export default Ember.Controller.extend({
           return user.set("personalAccount", account).save().then(() => {
             this.session.resetCurrentAccount();
             this.transitionTo("dashboard");
-          });
-        }).catch(() => {
-          this.notifications.addNotification({
-            message: "Could not save your changes, please try again in a few moments.",
-            type: "error",
-            autoClear: true
-          });
-        });
+          }).catch(handleError);
+        }).catch(handleError);
       });
     }
   }

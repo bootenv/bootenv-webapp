@@ -43,26 +43,32 @@ section.content
               input.form-control.input-sm.pull-right type="text" name="table_search" style="width: 150px;" placeholder="Filter"
               .input-group-btn
                 button.btn.btn-sm.btn-default: i.fa.fa-search
-        .box-body.table-responsive.no-padding
-          table.table.table-hover.table-striped
-            thead
-              tr
-                th Secret
-                th Name
-                th Default value
-                th
-            tbody
-              each property in model.properties
+        fm-form role="form" action="addVariable"
+          .box-body.table-responsive.no-padding
+            table.table.table-hover.table-striped
+              thead
                 tr
-                  td = property.name
-                  td = property.defaultValue
-                  td.text-center: lock-icon secret=property.secret
-            tfoot
-              tr
-                td.text-center: i-check
-                td: input value=property.name
-                td: input value=property.defaultValue
-                td: link-to "dashboard" class="btn btn-xs btn-flat bg-olive"
-                    i.fa.fa-plus
-                    |  Add
+                  th
+                  th Name
+                  th Default value
+                  th
+              tbody
+                each variable in model.variables
+                  tr
+                    td.text-center: lock-icon secret=variable.secret
+                    td = variable.name
+                    td
+                      if variable.secret
+                        | **********
+                      else
+                        = variable.defaultValue
+                    td.text-center: i.fa.fa-trash.action click="'removeVariable' variable"
+              tfoot
+                tr
+                  td.text-center = i-check checked=newVariable.secret
+                  td = input value=newVariable.name
+                  td = input value=newVariable.defaultValue
+                  td.text-center: button.btn.btn-xs.btn-flat.bg-olive type="submit"
+                      i.fa.fa-plus
+                      |  Add
 

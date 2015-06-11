@@ -60,9 +60,9 @@ section.content
                   td: input value=variable.value
             tfoot
               tr
-                td.text-center: i-check value=newProperty.secret
-                td: input value=newProperty.name
-                td: input value=newProperty.value
+                td.text-center: i-check value=newVariable.secret
+                td: input value=newVariable.name
+                td: input value=newVariable.value
                 td: link-to "dashboard" class="btn btn-xs btn-flat bg-olive"
                     i.fa.fa-plus
                     |  Add

@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { handleLoginError } from 'bootenv-webapp/utils/notifications';
 
 export default Ember.Controller.extend({
 
@@ -13,21 +14,7 @@ export default Ember.Controller.extend({
       var authenticator = 'simple-auth-authenticator:token';
       var data = this.getProperties('identification', 'password');
 
-      return this.get('session').authenticate(authenticator, data).catch((result) => {
-        var message = "Error loging in. Please try again in a few moments.";
-
-        if (result && result.error && result.error.code === 'LOGIN_FAILED') {
-          message = "Invalid username or password";
-        }
-
-        this.notifications.addNotification({
-          message: message,
-          type: "error",
-          autoClear: true
-        });
-
-        throw result;
-      });
+      return this.get('session').authenticate(authenticator, data).catch(handleLoginError);
     }
   }
 
