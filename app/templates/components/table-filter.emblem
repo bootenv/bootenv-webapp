@@ -1,0 +1,6 @@
+if env.FILTERING_ENABLED
+  .box-tools.hidden-xs.hidden-sm
+    .input-group
+      input.form-control.input-sm.pull-right type="text" name="table_search" style="width: 150px;" placeholder="Filter"
+      .input-group-btn
+        button.btn.btn-sm.btn-default: i.fa.fa-search

@@ -7,11 +7,7 @@ section.content
         .box-header.with-border
           h3.box-title
             | Environment variables values
-          .box-tools.hidden-xs.hidden-sm
-            .input-group
-              input.form-control.input-sm.pull-right type="text" name="table_search" style="width: 150px;" placeholder="Filter"
-              .input-group-btn
-                button.btn.btn-sm.btn-default: i.fa.fa-search
+          table-filter what=model.properties
         .box-body.table-responsive.no-padding
           table.table.table-hover.table-striped
             if model.properties
@@ -39,11 +35,7 @@ section.content
         .box-header.with-border
           h3.box-title
             | Extra Values
-          .box-tools.hidden-xs.hidden-sm
-            .input-group
-              input.form-control.input-sm.pull-right type="text" name="table_search" style="width: 150px;" placeholder="Filter"
-              .input-group-btn
-                button.btn.btn-sm.btn-default: i.fa.fa-search
+          table-filter what=model.variables
         .box-body.table-responsive.no-padding
           table.table.table-hover.table-striped
             thead
@@ -53,7 +45,7 @@ section.content
                 th Value
                 th
             tbody
-              each variable in model.variable
+              each variable in model.variables
                 tr
                   td: lock-icon secret=varable.secret
                   td = variable.name

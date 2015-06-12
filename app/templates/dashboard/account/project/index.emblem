@@ -9,11 +9,7 @@ section.content
             | Environments &nbsp;
             link-to "dashboard.account.project.environment.settings" "~new" class="btn btn-xs btn-flat bg-olive"
               i.fa.fa-plus
-          .box-tools.hidden-xs.hidden-sm
-            .input-group
-              input.form-control.input-sm.pull-right type="text" name="table_search" style="width: 150px;" placeholder="Filter"
-              .input-group-btn
-                button.btn.btn-sm.btn-default: i.fa.fa-search
+          table-filter what=model.environments
         .box-body.table-responsive.no-padding
           table.table.table-hover.table-striped
             if model.environments
@@ -38,11 +34,7 @@ section.content
         .box-header.with-border
           h3.box-title
             | Environment variables
-          .box-tools.hidden-xs.hidden-sm
-            .input-group
-              input.form-control.input-sm.pull-right type="text" name="table_search" style="width: 150px;" placeholder="Filter"
-              .input-group-btn
-                button.btn.btn-sm.btn-default: i.fa.fa-search
+          table-filter what=model.variables
         .box-body.table-responsive.no-padding
           table.table.table-hover.table-striped
             thead
