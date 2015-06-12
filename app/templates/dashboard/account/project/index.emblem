@@ -39,7 +39,7 @@ section.content
             | Environment variables
           table-filter what=model.variables
         .box-body.table-responsive.no-padding
-          table.table.table-hover.table-striped
+          table.table.table-hover.table-striped.variables-table
             thead
               tr
                 th.text-center Secret

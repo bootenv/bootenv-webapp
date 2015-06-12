@@ -34,8 +34,11 @@ section.content
               else
                 tr
                   td
-                   | You have no project environment variables.
-                   | Create some {{link-to "dashboard.account.project" model.project here }}.
+                   | You have no project environment variables. Create some
+                   '
+                   link-to "dashboard.account.project" model.project
+                     | here
+                   |.
 
       .box
         .box-header.with-border
