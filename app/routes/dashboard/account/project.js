@@ -22,14 +22,13 @@ export default Ember.Route.extend({
 
   serialize(model) {
     return {
-      account_name: model.get("account.name"),
       project_name: model.get("name") || "~new"
     };
   },
 
   afterModel(model) {
     // TODO remove this hack to load the projects once we get the list of ids from the api
-    if (!model.get("environments.length") && !model.get("isNew")) {
+    if (!model.get("isNew")) {
       return this.store.find("environment", { projectId: model.get("id") });
     }
   }

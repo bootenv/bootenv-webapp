@@ -8,6 +8,10 @@ var app = new EmberApp({
       'bower_components/admin-lte/build/sass'
     ]
   },
+  'ember-cli-bootstrap-sassy': {
+    'glyphicons': false,
+    'quiet': true
+  },
   sourcemaps: ['js', 'css'],
   favicon: {
     settings: {

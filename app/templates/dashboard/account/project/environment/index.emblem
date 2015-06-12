@@ -4,7 +4,7 @@ section.content
   .row
     .col-md-8
       .box.box-primary
-        .box-header
+        .box-header.with-border
           h3.box-title
             | Environment variables values
           .box-tools.hidden-xs.hidden-sm
@@ -36,7 +36,7 @@ section.content
                    |.
 
       .box
-        .box-header
+        .box-header.with-border
           h3.box-title
             | Extra Values
           .box-tools.hidden-xs.hidden-sm
@@ -48,7 +48,7 @@ section.content
           table.table.table-hover.table-striped
             thead
               tr
-                th Secret
+                th.text-center Secret
                 th Name
                 th Value
                 th
@@ -63,7 +63,7 @@ section.content
                 td.text-center: i-check value=newVariable.secret
                 td: input value=newVariable.name
                 td: input value=newVariable.value
-                td: link-to "dashboard" class="btn btn-xs btn-flat bg-olive"
+                td: link-to "dashboard" class="btn btn-sm btn-flat bg-olive"
                     i.fa.fa-plus
                     |  Add
 
@@ -83,25 +83,43 @@ section.content
             option CSV
 
       .box
-        .box-header
+        .box-header.with-border
           h3.box-title
             | Tokens
         .box-body.table-responsive.no-padding
           table.table.table-hover.table-striped
-            tbody
+            thead
               tr
                 th Name
                 th Date
+                th
+            tbody
               each token in model.tokens
-                tr
-                  td = token.name
-                  td = token.date
+                unless token.isNew
+                  tr
+                    td = token.name
+                    td: moment token.created 'YYYY/MM/DD'
+                    td.text-center: i.fa.fa-trash.action click="'removeToken' token"
             tfoot
               tr
-                td colspan="2"
+                td colspan="3"
                   .input-group.input-group-sm
-                    input.form-control value=newToken.name
+                    = input value=newToken.name required=true class="form-control"
                     .input-group-btn
-                      button.btn.btn-flat.btn-primary click="generateToken"
+                      button.btn.btn-flat.btn-primary click="addToken"
                         i.fa.fa-plus
                         |  Generate
+
+#tokenModal.modal.fade.modal-danger
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close type="button"  data-dismiss="modal" aria-label="Close"
+          span aria-hidden="true" &times;
+        h4 class="modal-title" Token Value
+      .modal-body
+        p Copy your token value now. After closing this dialog you will not be able to get it's value again.
+        input.form-control value=generatedTokenId
+      .modal-footer
+        button.btn.btn-danger type="button" data-dismiss="modal" Close
+

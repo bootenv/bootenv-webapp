@@ -10,12 +10,14 @@ export default Ember.Controller.extend({
   }.observes('rememberMe'),
 
   actions: {
+
     authenticate() {
       var authenticator = 'simple-auth-authenticator:token';
       var data = this.getProperties('identification', 'password');
 
       return this.get('session').authenticate(authenticator, data).catch(handleLoginError);
     }
+
   }
 
 });

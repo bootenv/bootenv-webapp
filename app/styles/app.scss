@@ -1,6 +1,10 @@
 @import "bootstrap";
 @import "AdminLTE";
 @import "skin";
+@import "sidebar";
+@import "headers";
+@import "forms";
+@import "tables";
 
 .login-page, .register-page {
   background: #000 url(images/bgnoise.png);
@@ -10,187 +14,20 @@
   padding-top: 2em;
 }
 
-.checkbox label {
-  display: block;
-}
+#error {
+  .suggestion {
+    margin: 1em;
+    color: #ccc;
 
-.suggestion {
-  margin: 1em;
-  color: #ccc;
-
-  a {
-    color: #999;
-  }
-}
-
-/***********************************************************************
- * SIDEBAR
- ***********************************************************************/
-.sidebar {
-  a.user-panel {
-    cursor: pointer;
-    padding: 10px 10px 12px;
-
-    img.gravatar-image {
-      overflow: hidden;
-      display: inline-block;
-    }
-  }
-
-  /** Use bootstrap instead of admin-lte for collapsing the menu */
-  .sidebar-menu .treeview-menu {
-    &.collapse.in, &.collapsing {
-      display: block;
-    }
-  }
-
-  #account-menu {
-    img {
-      max-width: 20px;
-    }
-
-    .info {
-      padding: 5px;
-      left: 40px;
+    a {
+      color: #999;
     }
   }
 }
 
-.sidebar-mini.sidebar-collapse .sidebar-menu > li:hover {
-  #account-menu {
-    top: 0;
-    height: auto !important;
-
-    li {
-      display: inline-block;
-      float: left;
-      width: 40px;
-
-      a.user-panel {
-        padding: 10px;
-      }
-
-      &.add {
-        clear: both;
-        display: block;
-      }
-    }
-  }
-}
-
-/***********************************************************************
- * HEADERS
- ***********************************************************************/
-
-.content-header {
-  .header-icon {
-    position: absolute;
-    float: left;
-    color: #aaa;
-    margin-top: -10px;
-
-    .is-public {
-      left: 10px;
-      top: 10px;
-      font-size: 20px;
-    }
-  }
-
-  .header-text {
-    display: inline-block;
-    margin-left: 50px;
-
-    .path-part {
-      display: inline-block;
-      white-space: nowrap;
-      margin-right: 0.5ex;
-
-      &::after {
-        content: " /"
-      }
-    }
-
-    .end-part {
-      display: inline-block;
-      white-space: nowrap;
-      margin-right: 0.5ex;
-    }
-
-    .fa-cog {
-      color: #ccc;
-      font-size: 15px;
-      padding: 6px;
-      vertical-align: middle;
-
-      &:hover {
-        color: $blue;
-      }
-    }
-  }
-}
-
-/***********************************************************************
- * FORMS
- ***********************************************************************/
-
-.nav-tabs-custom {
-  box-shadow: none;
-  margin-bottom: 0;
-
-  .nav-tabs {
-    li > a {
-      font-size: 18px;
-      padding: 5px 15px 10px;
-    }
-
-    li:first-child > a {
-      padding-left: 9px;
-    }
-  }
-
-  #access {
-    .btn {
-      margin: 0 0 10px;
-      width: 500px;
-      display: inline-block;
-    }
-
-    .account {
-      & > i {
-        font-size: 25px;
-        margin-left: 10px;
-
-        &.fa-check {
-          color: $green;
-        }
-
-        &.fa-unlink {
-          color: $gray;
-        }
-      }
-    }
-  }
-}
-
-.box-body .checkbox label {
-  padding-left: 0;
-}
-
-/***********************************************************************
- * OTHER
- ***********************************************************************/
-
-td {
-  & > i.fa {
-    margin-right: 0.5em;
-  }
-
-  &.text-center > i.fa {
-    margin-right: 0;
-  }
-
-  i.action {
-    cursor: pointer;
+#tokenModal {
+  input {
+    color: black;
   }
 }
 
@@ -199,14 +36,14 @@ td {
   font-size: 12px;
 }
 
-.environments .label {
-  margin-right: 0.5em;
-}
-
 .fa-lock {
   color: $red;
 }
 
 .fa-unlock {
   color: $green;
+}
+
+.fa-trash {
+  color: $red;
 }

@@ -32,9 +32,7 @@ export default Ember.Route.extend({
     } else {
       this.set("session.currentAccountId", model.get("id"));
       // TODO remove this hack to load the projects once we get the list of ids from the api
-      if (!model.get("projects.length")) {
-        return this.store.find("project", { accountId: model.get("id") });
-      }
+      return this.store.find("project", { accountId: model.get("id") });
     }
   }
 

@@ -19,7 +19,7 @@ export default Ember.Controller.extend({
           return user.set("personalAccount", account).save().then(() => {
             this.session.resetCurrentAccount();
             this.transitionTo("dashboard");
-          }).catch(handleError);
+          });
         }).catch(handleError);
       });
     }

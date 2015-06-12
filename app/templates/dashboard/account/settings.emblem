@@ -18,7 +18,7 @@ section.content
               .nav-tabs-custom role="tabpanel"
                 ul.nav.nav-tabs  role="tablist"
                   li.active role="presentation"
-                    a href="#main" aria-controls="main" role="tab" data-toggle="tab"
+                    a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"
                         i.fa.fa-user
                         |  Personal Account
                   if model.personal
@@ -29,28 +29,10 @@ section.content
 
                 / Tab panes
                 .tab-content
-                  #main.tab-pane.active role="tabpanel"
+                  #settings.tab-pane.active role="tabpanel"
                     partial 'partials/account-settings'
-
                   #access.tab-pane role="tabpanel"
-                    fm-field type="password" value=session.currentUser.password label="New password" required=true
-                    fm-field type="password" value=passwordConfirm label="The new password again" required=true
-                    label Connect with other accounts:
-                    .account
-                      a.btn.btn-block.btn-social.btn-github.btn-flat href="/"
-                        i.fa.fa-github
-                        | GitHub
-                      i.fa.fa-check.fa-fw
-                    .account
-                      a.btn.btn-block.btn-social.btn-twitter.btn-flat href="/"
-                        i.fa.fa-facebook
-                        | Twitter
-                      i.fa.fa-unlink.fa-fw
-                    .account
-                      a.btn.btn-block.btn-social.btn-google-plus.btn-flat href="/"
-                        i.fa.fa-google-plus
-                        | Google+
-                      i.fa.fa-check.fa-fw
+                    partial 'partials/account-access'
 
           else
             .box-header.with-border

@@ -5,7 +5,7 @@ section.content
     / Projects box
     .col-xs-12
       .box.box-primary
-        .box-header
+        .box-header.with-border
           h3.box-title
             | Projects &nbsp;
             link-to "dashboard.account.project.settings" model "~new" class="btn btn-xs btn-flat bg-olive"

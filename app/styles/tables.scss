@@ -1,0 +1,22 @@
+td {
+  & > i.fa {
+    margin-right: 0.5em;
+  }
+
+  &.text-center > i.fa {
+    margin-right: 0;
+  }
+
+  i.fa.action {
+    cursor: pointer;
+  }
+}
+
+.environments .label {
+  margin-right: 0.5em;
+}
+
+.table > tfoot > tr > td {
+  vertical-align: middle;
+}
+

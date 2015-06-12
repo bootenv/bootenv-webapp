@@ -1,0 +1,19 @@
+fm-field type="password" value=session.currentUser.password label="New password" required=true
+fm-field type="password" value=passwordConfirm label="The new password again" required=true
+
+label Connect with other accounts:
+.account
+  a.btn.btn-block.btn-social.btn-github.btn-flat href="/"
+    i.fa.fa-github
+    | GitHub
+  i.fa.fa-check.fa-fw
+.account
+  a.btn.btn-block.btn-social.btn-twitter.btn-flat href="/"
+    i.fa.fa-facebook
+    | Twitter
+  i.fa.fa-unlink.fa-fw
+.account
+  a.btn.btn-block.btn-social.btn-google-plus.btn-flat href="/"
+    i.fa.fa-google-plus
+    | Google+
+  i.fa.fa-check.fa-fw

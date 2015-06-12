@@ -1,0 +1,48 @@
+.nav-tabs-custom {
+  box-shadow: none;
+  margin-bottom: 0;
+
+  .nav-tabs {
+    li > a {
+      font-size: 18px;
+      padding: 5px 15px 10px;
+    }
+
+    li:first-child > a {
+      padding-left: 9px;
+    }
+  }
+
+  /* Personal account settings access tab */
+  #access {
+    .btn-social {
+      margin: 0 0 10px;
+      width: 500px;
+      display: inline-block;
+    }
+
+    .account {
+      & > i {
+        font-size: 25px;
+        margin-left: 10px;
+
+        &.fa-check {
+          color: $green;
+        }
+
+        &.fa-unlink {
+          color: $gray;
+        }
+      }
+    }
+  }
+}
+
+.box-body .checkbox label {
+  padding-left: 0;
+}
+
+.checkbox label {
+  display: block;
+}
+

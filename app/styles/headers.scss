@@ -1,0 +1,47 @@
+.content-header {
+  .header-icon {
+    position: absolute;
+    float: left;
+    color: #aaa;
+    margin-top: -10px;
+
+    .is-public {
+      left: 10px;
+      top: 10px;
+      font-size: 20px;
+    }
+  }
+
+  .header-text {
+    display: inline-block;
+    margin-left: 50px;
+
+    .path-part {
+      display: inline-block;
+      white-space: nowrap;
+      margin-right: 0.5ex;
+
+      &::after {
+        content: " /"
+      }
+    }
+
+    .end-part {
+      display: inline-block;
+      white-space: nowrap;
+      margin-right: 0.5ex;
+    }
+
+    .fa-cog {
+      color: #ccc;
+      font-size: 15px;
+      padding: 6px;
+      vertical-align: middle;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+}
+
