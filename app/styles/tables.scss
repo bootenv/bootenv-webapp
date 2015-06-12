@@ -1,4 +1,6 @@
 td {
+  vertical-align: middle !important;
+
   & > i.fa {
     margin-right: 0.5em;
   }
@@ -10,6 +12,15 @@ td {
   i.fa.action {
     cursor: pointer;
   }
+
+  .circle {
+    display: inline-block;
+    border-radius: 5px;
+    width: 15px;
+    height: 10px;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
 }
 
 .environments .label {
@@ -20,3 +31,15 @@ td {
   vertical-align: middle;
 }
 
+.variables-table {
+  tr {
+    td {
+      width: 50%;
+    }
+
+    td:first-child, td:last-child {
+      width: 60px;
+      min-width: 60px;
+    }
+  }
+}

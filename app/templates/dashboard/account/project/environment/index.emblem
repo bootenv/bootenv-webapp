@@ -6,38 +6,44 @@ section.content
       .box.box-primary
         .box-header.with-border
           h3.box-title
-            | Environment variables values
-          table-filter what=model.properties
+            | Project environment variables
+          table-filter what=variables
         .box-body.table-responsive.no-padding
-          table.table.table-hover.table-striped
-            if model.properties
+          table.table.table-hover.table-striped.variables-table
+            if variables
               thead
                 tr
-                  th Secret
+                  th.text-center Secret
                   th Name
                   th Value
                   th
             tbody
-              each variable in model.variables
+              each variable in variables
                 tr
-                  td: lock-icon secret=variable.secret
-                  td = variable.name
-                  td: input value=variable.value
+                  td.text-center: lock-icon secret=variable.definition.secret
+                  td = variable.definition.name
+                  td
+                    if variable.definition.secret
+                      = input type="password" value=variable.value.value placeholder="**********" class="form-control input-sm" focus-out="changeVariables"
+                    else
+                      = input value=variable.value.value placeholder=variable.definition.defaultValue class="form-control input-sm" focus-out="changeVariables"
+                  if variable.value.isNew
+                    td
+                  else
+                    td.text-center: i.fa.fa-fw.fa-undo.action title="Use default" click="'resetVariable' variable.value"
               else
                 tr
                   td
-                   | You have no project environment variables. Create some
-                   link-to "dashboard.account.project" model.project
-                     |  here
-                   |.
+                   | You have no project environment variables.
+                   | Create some {{link-to "dashboard.account.project" model.project here }}.
 
       .box
         .box-header.with-border
           h3.box-title
-            | Extra Values
-          table-filter what=model.variables
+            | Other variables
+          table-filter what=otherVariables
         .box-body.table-responsive.no-padding
-          table.table.table-hover.table-striped
+          table.table.table-hover.table-striped.variables-table
             thead
               tr
                 th.text-center Secret
@@ -45,17 +51,22 @@ section.content
                 th Value
                 th
             tbody
-              each variable in model.variables
+              each variable in otherVariables
                 tr
-                  td: lock-icon secret=varable.secret
-                  td = variable.name
-                  td: input value=variable.value
+                  td.text-center: lock-icon secret=variable.value.secret
+                  td = variable.value.name
+                  td
+                    if variable.value.secret
+                      = input type="password" value=variable.value.value class="form-control input-sm" focus-out="changeVariables"
+                    else
+                      = input value=variable.value.value class="form-control input-sm" focus-out="changeVariables"
+                  td.text-center: i.fa.fa-trash.action click="'removeVariable' variable.value"
             tfoot
               tr
-                td.text-center = i-check value=newVariable.secret
+                td.text-center = i-check checked=newVariable.secret
                 td = input value=newVariable.name class="form-control input-sm"
                 td = input value=newVariable.value class="form-control input-sm"
-                td.text-center: button.btn.btn-sm.btn-flat.bg-olive type="submit" click="addVariable"
+                td.text-center: button.btn.btn-sm.btn-flat.bg-olive type="submit" click="addOtherVariable"
                     i.fa.fa-plus
                     |  Add
 
@@ -100,7 +111,7 @@ section.content
                   .input-group.input-group-sm
                     = input value=newToken.name required=true class="form-control" placeholder="Token name"
                     .input-group-btn
-                      button.btn.btn-flat.btn-primary click="addToken"
+                      button.btn.btn-flat.bg-olive click="addToken"
                         i.fa.fa-plus
                         |  Generate
 

@@ -2,7 +2,7 @@ project-header project=model
 
 section.content
   .row
-    .col-md-6
+    .col-md-4
       .box.box-primary
         .box-header.with-border
           h3.box-title
@@ -16,6 +16,7 @@ section.content
               thead
                 tr
                   th Name
+                  th
                   th Description
             tbody
               each environment in model.environments
@@ -24,12 +25,14 @@ section.content
                     lock-icon public=environment.public
                     link-to 'dashboard.account.project.environment' environment
                       = environment.name
+                  td
+                    .circle style="background-color: {{environment.color}}"
                   td = project.description
               else
                 tr
                   td No environments defined. Go ahead a create a new one!
 
-    .col-md-6
+    .col-md-8
       .box
         .box-header.with-border
           h3.box-title
