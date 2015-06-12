@@ -46,3 +46,69 @@
   display: block;
 }
 
+.sp-replacer {
+  border-color: $gray;
+  background: white;
+  padding: 5px;
+  margin: 5px 0;
+
+  &:hover {
+    border-color: $gray;
+  }
+
+  &.sp-active {
+    border-color: $light-blue;
+  }
+}
+
+.sp-container {
+  border: 1px solid $gray;
+  border-radius: 3px;
+  background: white;
+
+  .sp-palette .sp-thumb-el:hover, .sp-palette .sp-thumb-el.sp-thumb-active {
+    border-color: $light-blue;
+  }
+
+  .sp-input {
+    @extend .form-element, .input-sm;
+
+    border-radius: 0 !important;
+    border: 1px solid $gray !important;
+  }
+
+  .sp-palette-toggle, .sp-choose, .sp-cancel {
+    @extend .btn, .btn-sm, .btn-flat;
+
+    text-shadow: none !important;
+    background-image: none !important;
+    border-radius: $btn-border-radius;
+  }
+
+  .sp-palette-toggle {
+    &:hover {
+      border: 1px solid $gray;
+    }
+  }
+
+  .sp-choose {
+    color: white !important;
+
+    background-color: $light-blue;
+    border-color: darken($light-blue, 5%);
+    &:hover, &:active, &.hover {
+      background-color: darken($light-blue, 5%);
+    }
+  }
+
+  .sp-cancel {
+    color: white !important;
+
+    background-color: $yellow;
+    border-color: darken($yellow, 5%);
+    &:hover, &:active, &.hover {
+      background-color: darken($yellow, 5%);
+    }
+  }
+}
+

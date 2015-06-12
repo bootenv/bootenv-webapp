@@ -17,6 +17,9 @@ section.content
           .box-body
             fm-field type="text" value=model.name label="Name *" required=true
             fm-field type="text" value=model.description label="Description" required=true
+            label
+              | Color
+              div = color-picker color=model.color
             .checkbox: label
               i-check checked=model.public
               |  Public

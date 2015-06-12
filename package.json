@@ -54,6 +54,7 @@
     "ember-export-application-global": "^1.0.2",
     "ember-form-master-2000": "0.1.0",
     "ember-moment": "1.1.1",
+    "ember-spectrum-color-picker": "^0.1.2",
     "ember-truth-helpers": "0.0.5"
   }
 }

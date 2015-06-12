@@ -18,7 +18,8 @@
     "iCheck": "~1.0.2",
     "fastclick": "~1.0.6",
     "ember-cli-moment-shim": "~0.1.0",
-    "objectid.js": "~1.0.0"
+    "objectid.js": "~1.0.0",
+    "spectrum": "~1.7.0"
   },
   "devDependencies": {
     "ember-cli-test-loader": "ember-cli-test-loader#0.1.3",
