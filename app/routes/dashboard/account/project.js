@@ -29,7 +29,7 @@ export default Ember.Route.extend({
 
   afterModel(model) {
     // TODO remove this hack to load the projects once we get the list of ids from the api
-    if (!model.get("environments.length") && !Ember.isEmpty(model.get("id"))) {
+    if (!model.get("environments.length") && !model.get("isNew")) {
       return this.store.find("environment", { projectId: model.get("id") });
     }
   }

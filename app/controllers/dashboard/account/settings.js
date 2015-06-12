@@ -4,6 +4,7 @@ import { handleError } from 'bootenv-webapp/utils/notifications';
 export default Ember.Controller.extend({
 
   actions: {
+
     save() {
       var user = this.store.getById("user", this.get("session.currentUser.id"));
       this.get("model.owners").pushObject(user);
@@ -22,13 +23,14 @@ export default Ember.Controller.extend({
     },
 
     delete() {
-      if (!this.get("model.id") || confirm("Are you sure?")) {
+      if (this.get("model.isNew") || confirm("Are you sure?")) {
         this.get("model").destroyRecord().then(() => {
           this.session.resetCurrentAccount();
           this.transitionTo("dashboard");
         }).catch(handleError);
       }
     }
+
   }
 
 });

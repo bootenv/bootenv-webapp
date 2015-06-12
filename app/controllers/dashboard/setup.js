@@ -4,6 +4,7 @@ import { handleError } from 'bootenv-webapp/utils/notifications';
 export default Ember.Controller.extend({
 
   actions: {
+
     completeProfile() {
       this.get("session.currentUser").then((user) => {
         var account = this.store.createRecord("account", {
@@ -22,6 +23,7 @@ export default Ember.Controller.extend({
         }).catch(handleError);
       });
     }
+
   }
 
 });

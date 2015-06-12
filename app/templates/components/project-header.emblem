@@ -13,7 +13,7 @@ section.content-header: h1
         = project.account.name
 
     if template
-      if project.id
+      unless project.isNew
         .path-part
           link-to "dashboard.account.project" project
             = project.name

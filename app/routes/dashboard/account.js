@@ -27,7 +27,7 @@ export default Ember.Route.extend({
   },
 
   afterModel(model) {
-    if (Ember.isEmpty(model.get("id"))) {
+    if (model.get("isNew")) {
       this.transitionTo("dashboard.account.settings", model);
     } else {
       this.set("session.currentAccountId", model.get("id"));

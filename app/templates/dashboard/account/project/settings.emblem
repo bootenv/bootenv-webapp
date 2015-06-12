@@ -1,8 +1,8 @@
 project-header project=model
-  if model.id
-    | ~settings
-  else
+  if model.isNew
     | new project
+  else
+    | ~settings
 
 section.content
   .row
@@ -21,8 +21,8 @@ section.content
               i-check checked=model.public
               |  Public
           .box-footer
-            if model.id
-              button.btn.btn-danger.pull-left type="button" click="delete" Delete
-            else
+            if model.isNew
               button.btn.btn-warning.pull-left type="button" click="delete" Cancel
+            else
+              button.btn.btn-danger.pull-left type="button" click="delete" Delete
             button.btn.btn-info.pull-right type="submit" Save

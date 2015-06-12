@@ -1,11 +1,11 @@
 account-header account=model
-  if model.id
-    | ~settings
-  else
+  if model.isNew
     if model.personal
       |  new personal account
     else
       |  new organization
+  else
+    | ~settings
 
 section.content
   .row
@@ -61,9 +61,9 @@ section.content
               partial 'partials/account-settings'
 
           .box-footer
-            if model.id
+            if model.isNew
+              button.btn.btn-warning.pull-left type="button" click="delete" Cancel
+            else
               unless model.personal
                 button.btn.btn-danger.pull-left type="button" click="delete" Delete
-            else
-              button.btn.btn-warning.pull-left type="button" click="delete" Cancel
             button.btn.btn-info.pull-right type="submit" Save

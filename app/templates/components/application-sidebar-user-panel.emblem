@@ -8,7 +8,7 @@ a.user-panel data-toggle="collapse" href="#account-menu" aria-expanded="false" a
   i.fa.fa-angle-down.pull-right
 ul.collapse.treeview-menu#account-menu
   each accounts as |account|
-    if (and account.id (not (eq account.name session.currentAccount.name)))
+    unless (or account.isNew (eq account.name session.currentAccount.name))
       li: link-to "dashboard.account" account class="user-panel"
         .pull-left.image
           gravatar-image email=account.email class="img-circle" alt=account.name title=account.name defaultImage="retro"

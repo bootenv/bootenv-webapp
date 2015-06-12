@@ -17,7 +17,7 @@ section.content-header: h1
         = environment.project.name
 
     if template
-      if environment.id
+      unless environment.id
         .path-part
           link-to "dashboard.account.project.environment" environment
             = environment.name
