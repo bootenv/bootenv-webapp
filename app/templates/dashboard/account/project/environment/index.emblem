@@ -60,10 +60,10 @@ section.content
                   td: input value=variable.value
             tfoot
               tr
-                td.text-center: i-check value=newVariable.secret
-                td: input value=newVariable.name
-                td: input value=newVariable.value
-                td: link-to "dashboard" class="btn btn-sm btn-flat bg-olive"
+                td.text-center = i-check value=newVariable.secret
+                td = input value=newVariable.name class="form-control input-sm"
+                td = input value=newVariable.value class="form-control input-sm"
+                td.text-center: button.btn.btn-sm.btn-flat.bg-olive type="submit" click="addVariable"
                     i.fa.fa-plus
                     |  Add
 
@@ -73,14 +73,16 @@ section.content
           h3.box-title
             | Export
         .box-body
-          | Download as:
-          '
-          select
-            option
-            option Yaml
-            option JSON
-            option Shell
-            option CSV
+          .btn-group
+            button.btn.btn-default type="button" Download
+            button.btn.btn-default.dropdown-toggle type="button" aria-expanded="true" data-toggle="dropdown"
+              span.caret
+              span.sr-only Toggle Dropdown
+            ul.dropdown-menu role="menu"
+              li: a href="#" YAML
+              li: a href="#" JSON
+              li: a href="#" Bash / zsh
+              li: a href="#" CSV
 
       .box
         .box-header.with-border
@@ -104,7 +106,7 @@ section.content
               tr
                 td colspan="3"
                   .input-group.input-group-sm
-                    = input value=newToken.name required=true class="form-control"
+                    = input value=newToken.name required=true class="form-control" placeholder="Token name"
                     .input-group-btn
                       button.btn.btn-flat.btn-primary click="addToken"
                         i.fa.fa-plus

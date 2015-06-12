@@ -43,32 +43,31 @@ section.content
               input.form-control.input-sm.pull-right type="text" name="table_search" style="width: 150px;" placeholder="Filter"
               .input-group-btn
                 button.btn.btn-sm.btn-default: i.fa.fa-search
-        fm-form role="form"
-          .box-body.table-responsive.no-padding
-            table.table.table-hover.table-striped
-              thead
+        .box-body.table-responsive.no-padding
+          table.table.table-hover.table-striped
+            thead
+              tr
+                th.text-center Secret
+                th Name
+                th Default value
+                th
+            tbody
+              each variable in model.variables
                 tr
-                  th.text-center Secret
-                  th Name
-                  th Default value
-                  th
-              tbody
-                each variable in model.variables
-                  tr
-                    td.text-center: lock-icon secret=variable.secret
-                    td = variable.name
-                    td
-                      if variable.secret
-                        | **********
-                      else
-                        = variable.defaultValue
-                    td.text-center: i.fa.fa-trash.action click="'removeVariable' variable"
-              tfoot
-                tr
-                  td.text-center = i-check checked=newVariable.secret
-                  td = input value=newVariable.name
-                  td = input value=newVariable.defaultValue
-                  td.text-center: button.btn.btn-sm.btn-flat.bg-olive type="submit" click="addVariable"
-                      i.fa.fa-plus
-                      |  Add
+                  td.text-center: lock-icon secret=variable.secret
+                  td = variable.name
+                  td
+                    if variable.secret
+                      | **********
+                    else
+                      = variable.defaultValue
+                  td.text-center: i.fa.fa-trash.action click="'removeVariable' variable"
+            tfoot
+              tr
+                td.text-center = i-check checked=newVariable.secret
+                td = input value=newVariable.name class="form-control input-sm"
+                td = input value=newVariable.defaultValue class="form-control input-sm"
+                td.text-center: button.btn.btn-sm.btn-flat.bg-olive type="submit" click="addVariable"
+                    i.fa.fa-plus
+                    |  Add
 

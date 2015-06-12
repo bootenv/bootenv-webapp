@@ -17,12 +17,12 @@ section.content-header: h1
         = environment.project.name
 
     if template
-      unless environment.id
+      unless environment.isNew
         .path-part
           link-to "dashboard.account.project.environment" environment
             = environment.name
       .end-part
-      strong = yield
+        strong = yield
     else
       .end-part
         strong = environment.name
