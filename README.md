@@ -56,11 +56,10 @@ rsync -avz --delete dist/ user@some-host-or-ip:bootenv.yourdomain.com
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
 
-VERSIONS
-=============
+## Versions
  
  - 1.0.0 (current)
 
-LICENSE
-=============
+## License
+
 [Apache-2.0](LICENSE)
