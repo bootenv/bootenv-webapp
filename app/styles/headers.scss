@@ -19,10 +19,10 @@
     .path-part {
       display: inline-block;
       white-space: nowrap;
-      margin-right: 0.5ex;
 
       &::after {
-        content: " /"
+        content: "/";
+        margin: 0.5ex;
       }
     }
 

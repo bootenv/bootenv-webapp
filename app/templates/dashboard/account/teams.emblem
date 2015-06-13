@@ -1,5 +1,5 @@
 account-header account=model
-  | teams
+  | ~teams
 
 section.content
   .row
