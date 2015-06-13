@@ -19,7 +19,7 @@ section.content
                   th
                   th Description
             tbody
-              each environment in model.environments
+              each model.environments key="id" as |environment|
                 tr
                   td
                     lock-icon public=environment.public
@@ -47,7 +47,7 @@ section.content
                 th Default value
                 th
             tbody
-              each variable in model.variables
+              each model.variables key="id" as |variable|
                 tr
                   td.text-center: lock-icon secret=variable.secret
                   td = variable.name

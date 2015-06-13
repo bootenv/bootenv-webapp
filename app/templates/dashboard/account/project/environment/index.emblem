@@ -7,10 +7,10 @@ section.content
         .box-header.with-border
           h3.box-title
             | Project environment variables
-          table-filter what=variables
+          table-filter what=pairs
         .box-body.table-responsive.no-padding
           table.table.table-hover.table-striped.variables-table
-            if variables
+            if pairs
               thead
                 tr
                   th.text-center Secret
@@ -18,19 +18,19 @@ section.content
                   th Value
                   th
             tbody
-              each variable in variables
+              each pairs key="value.id" as |pair|
                 tr
-                  td.text-center: lock-icon secret=variable.definition.secret
-                  td = variable.definition.name
+                  td.text-center: lock-icon secret=pair.definition.secret
+                  td = pair.definition.name
                   td
-                    if variable.definition.secret
-                      = input type="password" value=variable.value.value placeholder="**********" class="form-control input-sm" focus-out="changeVariables"
+                    if pair.definition.secret
+                      = input type="password" value=pair.value.value placeholder="**********" class="form-control input-sm" focus-out="changeVariables"
                     else
-                      = input value=variable.value.value placeholder=variable.definition.defaultValue class="form-control input-sm" focus-out="changeVariables"
-                  if variable.value.isNew
+                      = input value=pair.value.value placeholder=pair.definition.defaultValue class="form-control input-sm" focus-out="changeVariables"
+                  if pair.value.isNew
                     td
                   else
-                    td.text-center: i.fa.fa-fw.fa-undo.action title="Use default" click="'resetVariable' variable.value"
+                    td.text-center: i.fa.fa-fw.fa-undo.action title="Use default" click="'resetVariable' pair.value"
               else
                 tr
                   td
@@ -44,7 +44,7 @@ section.content
         .box-header.with-border
           h3.box-title
             | Other variables
-          table-filter what=otherVariables
+          table-filter what=otherPairs
         .box-body.table-responsive.no-padding
           table.table.table-hover.table-striped.variables-table
             thead
@@ -54,15 +54,15 @@ section.content
                 th Value
                 th
             tbody
-              each variable in otherVariables
+              each otherPairs key="value.id" as |pair|
                 tr
-                  td.text-center: lock-icon secret=variable.value.secret
-                  td = variable.value.name
+                  td.text-center: lock-icon secret=pair.value.secret
+                  td = pair.value.name
                   td
-                    if variable.value.secret
-                      = input type="password" value=variable.value.value class="form-control input-sm" focus-out="changeVariables"
+                    if pair.value.secret
+                      = input type="password" value=pair.value.value class="form-control input-sm" focus-out="changeVariables"
                     else
-                      = input value=variable.value.value class="form-control input-sm" focus-out="changeVariables"
+                      = input value=pair.value.value class="form-control input-sm" focus-out="changeVariables"
                   td.text-center: i.fa.fa-trash.action click="'removeVariable' variable.value"
             tfoot
               tr
@@ -102,7 +102,7 @@ section.content
                 th Date
                 th
             tbody
-              each token in model.tokens
+              each model.tokens key="id" as |token|
                 unless token.isNew
                   tr
                     td = token.name

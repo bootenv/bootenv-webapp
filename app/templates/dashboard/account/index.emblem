@@ -20,7 +20,7 @@ section.content
                   th Description
                   th Environments
             tbody
-              each project in model.projects
+              each model.projects key="id" as |project|
                 tr
                   td
                     lock-icon public=project.public

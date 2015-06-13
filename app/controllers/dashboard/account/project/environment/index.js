@@ -17,7 +17,7 @@ export default Ember.Controller.extend({
     this.set("newToken", this.store.createRecord("token"));
   },
 
-  allVariables: function() {
+  allPairs: function() {
     var vd = this.get("model.project.variables");
     var vv = this.get("model.variables");
 
@@ -58,13 +58,13 @@ export default Ember.Controller.extend({
     return ret;
   }.property("model.project.variables", "model.variables"),
 
-  variables: function() {
-    return this.get("allVariables").filter((item) => !Ember.isEmpty(item.get("definition")));
-  }.property("allVariables"),
+  pairs: function() {
+    return this.get("allPairs").filter((item) => !Ember.isEmpty(item.get("definition")));
+  }.property("allPairs"),
 
-  otherVariables: function() {
-    return this.get("allVariables").filter((item) => Ember.isEmpty(item.get("definition")));
-  }.property("allVariables"),
+  otherPairs: function() {
+    return this.get("allPairs").filter((item) => Ember.isEmpty(item.get("definition")));
+  }.property("allPairs"),
 
   actions: {
 

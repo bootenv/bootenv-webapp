@@ -12,7 +12,7 @@ section.content
             .label.label-default = model.owners.length
         .box-body.no-padding
           ul.users-list
-            each model.owners as |owner|
+            each model.owners key="@id" as |owner|
               li
                 gravatar-image email=owner.email class="img-circle" alt="Owner Icon" defaultImage="retro"
                 a class="users-list-name" href="#" = owner.fullName
@@ -30,7 +30,7 @@ section.content
         .box-body.table-responsive.no-padding
           table.table.table-hover.table-striped
             tbody
-              each model.teams as |team|
+              each model.teams key="@id" as |team|
                 tr
                   td = team.name
               else

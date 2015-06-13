@@ -1,5 +1,5 @@
 .notifications-container
-  each notifications as |notification|
+  each notifications key="@index" as |notification|
     notification-message notification=notification
 
 outlet
