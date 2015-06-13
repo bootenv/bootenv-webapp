@@ -66,6 +66,13 @@
   border-radius: 3px;
   background: white;
 
+  .sp-palette .sp-thumb-el {
+    margin: 0 !important;
+    border: 0 !important;
+    width: 24px !important;
+    height: 24px !important;
+  }
+
   .sp-palette .sp-thumb-el:hover, .sp-palette .sp-thumb-el.sp-thumb-active {
     border-color: $light-blue;
   }
@@ -86,6 +93,13 @@
   }
 
   .sp-palette-toggle {
+    font-size: 10px;
+    margin: 5px;
+    padding: 4px 6px;
+    font-weight: bold;
+    width: 24px !important;
+    height: 24px !important;
+
     &:hover {
       border: 1px solid $gray;
     }

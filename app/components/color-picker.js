@@ -18,24 +18,29 @@ export default SpectrumColorPickerComponent.extend({
 
   clickoutFiresChange: true,
 
-  // Copied from admin-lte variables
+  togglePaletteMoreText: '+',
+
+  togglePaletteLessText: '-',
+
   palette: [
-    "#3c8dbc",  //Primary
-    "#dd4b39",  //Danger
-    "#00a65a",  //Success
-    "#00c0ef",  //Info
-    "#f39c12",  //Warning
-    "#0073b7",
-    "#001F3F",
-    "#39CCCC",
-    "#3D9970",
-    "#01FF70",
-    "#FF851B",
-    "#F012BE",
-    "#605ca8",
-    "#D81B60",
-    "#111",
-    "#d2d6de"
+    "#666666",
+    "#e11d21",
+    "#eb6420",
+    "#fbca04",
+    "#009800",
+    "#006b75",
+    "#207de5",
+    "#0052cc",
+    "#5319e7",
+    "#cccccc",
+    "#f7c6c7",
+    "#fad8c7",
+    "#fef2c0",
+    "#bfe5bf",
+    "#bfdadc",
+    "#c7def8",
+    "#bfd4f2",
+    "#d4c5f9"
   ]
 
 });
