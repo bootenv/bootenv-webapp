@@ -12,7 +12,10 @@ var app = new EmberApp({
     'glyphicons': false,
     'quiet': true
   },
-  sourcemaps: ['js', 'css'],
+  sourcemaps: {
+    "enabled": true,
+    "extensions": ['js', 'css']
+  },
   favicon: {
     settings: {
       appName: "bootenv",

@@ -68,18 +68,18 @@ export default Ember.Controller.extend({
 
   actions: {
 
-    changeVariable(variable) {
-      if (variable.get("value.isNew") && !Ember.isEmpty(variable.get("value.value"))) {
-        this.get("model.variables").pushObject(variable.get("value"));
+    changeVariable(pair) {
+      if (pair.get("value.isNew") && !Ember.isEmpty(pair.get("value.value"))) {
+        this.get("model.variables").pushObject(pair.get("value"));
       }
 
       this.get("model").save().catch(handleError);
     },
 
     changeVariables() {
-      this.get("variables").forEach((variable) => {
-        if (variable.get("value.isNew") && !Ember.isEmpty(variable.get("value.value"))) {
-          this.get("model.variables").pushObject(variable.get("value"));
+      this.get("pairs").forEach((pair) => {
+        if (pair.get("value.isNew") && !Ember.isEmpty(pair.get("value.value"))) {
+          this.get("model.variables").pushObject(pair.get("value"));
         }
       });
 
