@@ -4,25 +4,19 @@ export default Ember.Route.extend({
 
   model(params) {
     var account = this.modelFor("dashboard.account");
-    var query = {
-      account_id: account.id,
-      name: params.project_name
-    };
 
-    if (query.name === "~new") {
+    if (params.project_name === "~new") {
       return this.store.createRecord("project", {
         account: account
       });
     } else {
-      return this.store.find("project", query).then((projects) => {
-        return projects.get("firstObject");
-      });
+      return account.get("projects").filterBy("name", params.project_name).get("firstObject");
     }
   },
 
   serialize(model) {
     return {
-      project_name: model.get("name") || "~new"
+      project_name: model.get("isNew") ? "~new" : model.get("name")
     };
   },
 

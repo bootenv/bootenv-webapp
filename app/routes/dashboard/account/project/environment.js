@@ -4,25 +4,19 @@ export default Ember.Route.extend({
 
   model(params) {
     var project = this.modelFor("dashboard.account.project");
-    var query = {
-      project_id: project.id,
-      name: params.environment_name
-    };
 
-    if (query.name === "~new") {
+    if (params.environment_name === "~new") {
       return this.store.createRecord("environment", {
         project: project
       });
     } else {
-      return this.store.find("environment", query).then((environments) =>{
-        return environments.get("firstObject");
-      });
+      return project.get("environments").filterBy("name", params.environment_name).get("firstObject");
     }
   },
 
   serialize(model) {
     return {
-      environment_name: model.get("name") || "~new"
+      environment_name: model.get("isNew") ? "~new" : model.get("name")
     };
   },
 
