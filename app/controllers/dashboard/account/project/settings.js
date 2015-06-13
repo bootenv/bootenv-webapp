@@ -3,12 +3,18 @@ import { handleError, confirmDelete } from 'bootenv-webapp/utils/notifications';
 
 export default Ember.Controller.extend({
 
+  goBack() {
+    this.transitionTo("dashboard.account.project", this.get("model"));
+  },
+
   actions: {
 
     save() {
-      this.get("model").save().then((project) => {
-        this.transitionTo("dashboard.account.project", project);
-      }).catch(handleError);
+      if (this.get("model.isDirty")) {
+        this.get("model").save().then(() => this.goBack()).catch(handleError);
+      } else {
+        this.goBack();
+      }
     },
 
     delete() {

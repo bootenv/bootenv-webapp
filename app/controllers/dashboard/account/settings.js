@@ -3,21 +3,27 @@ import { handleError, confirmDelete } from 'bootenv-webapp/utils/notifications';
 
 export default Ember.Controller.extend({
 
+  goBack() {
+    this.transitionTo("dashboard");
+  },
+
   actions: {
 
     save() {
       var user = this.store.getById("user", this.get("session.currentUser.id"));
+
       this.get("model.owners").pushObject(user);
+
       this.get("model").save().then((account) => {
         this.set("session.currentAccountId", account.get("id"));
 
         if (this.get("model.personal")) {
           user.set("email", this.get("model.email"));
-          user.save().then(() => {
-            this.transitionTo("dashboard");
-          }).catch(handleError);
+          if (user.get("isDirty")) {
+            user.save().then(() => this.goBack()).catch(handleError);
+          }
         } else {
-          this.transitionTo("dashboard");
+          this.goBack();
         }
       }).catch(handleError);
     },

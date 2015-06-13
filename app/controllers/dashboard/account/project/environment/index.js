@@ -73,7 +73,9 @@ export default Ember.Controller.extend({
         this.get("model.variables").pushObject(pair.get("value"));
       }
 
-      this.get("model").save().catch(handleError);
+      if (this.get("model.isDirty")) {
+        this.get("model").save().catch(handleError);
+      }
     },
 
     changeVariables() {
@@ -83,7 +85,9 @@ export default Ember.Controller.extend({
         }
       });
 
-      this.get("model").save().catch(handleError);
+      if (this.get("model.isDirty")) {
+        this.get("model").save().catch(handleError);
+      }
     },
 
     resetVariable(variable) {
