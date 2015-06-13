@@ -3,7 +3,8 @@
     "document",
     "window",
     "-Promise",
-    "BootenvWebapp"
+    "BootenvWebapp",
+    "bootbox"
   ],
   "browser": true,
   "boss": true,

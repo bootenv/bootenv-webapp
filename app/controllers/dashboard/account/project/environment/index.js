@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import { handleError } from 'bootenv-webapp/utils/notifications';
+import { handleError, confirmDelete } from 'bootenv-webapp/utils/notifications';
 
 export default Ember.Controller.extend({
 
@@ -110,14 +110,14 @@ export default Ember.Controller.extend({
     },
 
     removeVariable(variable) {
-      if (confirm("Are you sure?")) {
+      confirmDelete("variable", () => {
         this.get("model.variables").removeRecord(variable);
 
         this.get("model").save().catch((result) => {
           this.get("model.variables").addRecord(variable);
           handleError(result);
         });
-      }
+      });
     },
 
     addToken() {
@@ -134,9 +134,9 @@ export default Ember.Controller.extend({
     },
 
     removeToken(token) {
-      if (confirm("Are you sure?")) {
+      confirmDelete("token", () => {
         token.destroyRecord().catch(handleError);
-      }
+      });
     }
 
   }

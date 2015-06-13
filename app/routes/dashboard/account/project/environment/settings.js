@@ -1,4 +1,5 @@
 import Ember from "ember";
+import { confirmDiscardChanges } from 'bootenv-webapp/utils/notifications';
 
 export default Ember.Route.extend({
 
@@ -6,11 +7,11 @@ export default Ember.Route.extend({
 
     willTransition(transition) {
       if (this.controller.get("model.isDirty")) {
-        if (confirm("There are unsaved changes, do you want to discard them?")) {
+        transition.abort();
+        confirmDiscardChanges(() => {
           this.controller.get("model").rollback();
-        } else {
-          transition.abort();
-        }
+          transition.retry();
+        });
       }
     }
 

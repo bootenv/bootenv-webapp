@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import { handleError } from 'bootenv-webapp/utils/notifications';
+import { handleError, confirmDelete } from 'bootenv-webapp/utils/notifications';
 
 export default Ember.Controller.extend({
 
@@ -23,12 +23,12 @@ export default Ember.Controller.extend({
     },
 
     delete() {
-      if (this.get("model.isNew") || confirm("Are you sure?")) {
+      confirmDelete(this.get("model.personal") ? "account" : "organization", () => {
         this.get("model").destroyRecord().then(() => {
           this.session.resetCurrentAccount();
           this.transitionTo("dashboard");
         }).catch(handleError);
-      }
+      }, this.get("model.isNew"));
     }
 
   }
