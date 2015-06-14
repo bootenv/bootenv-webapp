@@ -19,7 +19,7 @@ export default Ember.Controller.extend({
       }
     }
 
-    return Promise.resolve();
+    return Ember.RSVP.Promise.resolve();
   },
 
   actions: {
