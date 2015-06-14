@@ -4,28 +4,35 @@ import { handleError, confirmDelete } from 'bootenv-webapp/utils/notifications';
 export default Ember.Controller.extend({
 
   goBack() {
-    this.transitionTo("dashboard");
+    // FIXME check how to update the url without calling reload (when name changes)
+    this.transitionTo("dashboard.account", this.get("model").reload());
+  },
+
+  updateUser() {
+    if (this.get("model.personal")) {
+      let user = this.store.getById("user", this.get("session.currentUser.id"));
+
+      user.set("email", this.get("model.email"));
+
+      if (user.get("isDirty")) {
+        return user.save();
+      }
+    }
+
+    return Promise.resolve();
   },
 
   actions: {
 
     save() {
-      var user = this.store.getById("user", this.get("session.currentUser.id"));
-
-      this.get("model.owners").pushObject(user);
-
-      this.get("model").save().then((account) => {
-        this.set("session.currentAccountId", account.get("id"));
-
-        if (this.get("model.personal")) {
-          user.set("email", this.get("model.email"));
-          if (user.get("isDirty")) {
-            user.save().then(() => this.goBack()).catch(handleError);
-          }
-        } else {
-          this.goBack();
-        }
-      }).catch(handleError);
+      if (this.get("model.isDirty")) {
+        this.get("model").save()
+          .then(() => this.updateUser())
+          .then(() => this.goBack())
+          .catch(handleError);
+      } else {
+        this.updateUser().then(() => this.goBack()).catch(handleError);
+      }
     },
 
     delete() {
