@@ -8,5 +8,5 @@ export default DS.Model.extend({
   url: DS.attr('string'),
   personal: DS.attr('boolean'),
   projects: DS.hasMany('project', { async: true }),
-  owners: DS.hasMany('user', { async: true })
+  owners: DS.hasMany('user', { async: true, inverse: null })
 });

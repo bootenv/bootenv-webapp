@@ -4,10 +4,8 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   model() {
-    // Wait for the current user to load before showing the dashboard
-    return Ember.RSVP.hash({
-      _: this.get("session.currentUser"),
-      accounts: this.store.find('account')
+    return this.get("session.currentUser").then(user => {
+      return Ember.RSVP.hash({ accounts: user.get('accounts') });
     });
   },
 

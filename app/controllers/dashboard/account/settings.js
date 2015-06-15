@@ -10,13 +10,13 @@ export default Ember.Controller.extend({
 
   updateUser() {
     if (this.get("model.personal")) {
-      let user = this.store.getById("user", this.get("session.currentUser.id"));
+      return this.get("session.currentUser").then(user => {
+        user.set("email", this.get("model.email"));
 
-      user.set("email", this.get("model.email"));
-
-      if (user.get("isDirty")) {
-        return user.save();
-      }
+        if (user.get("isDirty")) {
+          return user.save();
+        }
+      });
     }
 
     return Ember.RSVP.Promise.resolve();

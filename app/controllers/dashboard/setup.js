@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
         var account = this.store.createRecord("account", {
           name: this.get("username"),
           description: "Personal Account",
-          email: this.get("session.currentUser.email"),
+          email: user.get("email"),
           personal: true,
           owners: [user]
         });
