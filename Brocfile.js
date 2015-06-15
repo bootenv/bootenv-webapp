@@ -41,5 +41,6 @@ var app = new EmberApp({
 app.import('bower_components/admin-lte/dist/js/app.js');
 app.import('bower_components/bootbox/bootbox.js');
 app.import('bower_components/objectid.js/src/main/javascript/Objectid.js');
+app.import('bower_components/hex2rgb/hex2rgb.js');
 
 module.exports = app.toTree();

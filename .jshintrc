@@ -4,7 +4,8 @@
     "window",
     "-Promise",
     "BootenvWebapp",
-    "bootbox"
+    "bootbox",
+    "hex2rgb"
   ],
   "browser": true,
   "boss": true,

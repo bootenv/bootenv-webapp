@@ -24,14 +24,14 @@ section.content
                 tr
                   td
                     lock-icon public=project.public
-                    link-to 'dashboard.account.project.index' project
+                    link-to "dashboard.account.project" project.account project
                       = project.name
                   td = project.description
                   td.environments
-                    span.label.label-success prod
-                    span.label.label-warning stage
-                    span.label.label-primary ci
-                    span.label.label-danger dev
+                    each project.environments key="@id" as |environment|
+                      link-to "dashboard.account.project.environment" environment.project environment
+                        span.label style="background-color: {{{environment.color}}}; color: {{hex2rgb-fg environment.color}}"
+                          = environment.name
               else
                 tr
                   td You have no projects. Go ahead a create a new one!
