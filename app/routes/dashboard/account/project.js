@@ -6,11 +6,10 @@ export default Ember.Route.extend({
     var account = this.modelFor("dashboard.account");
 
     if (params.project_name === "~new") {
-      return this.store.createRecord("project", {
-        account: account
-      });
+      return this.store.createRecord("project", { account: account });
     } else {
-      return account.get("projects").filterBy("name", params.project_name).get("firstObject");
+      return account.get("projects")
+        .then((projects) => projects.findBy("name", params.project_name));
     }
   },
 
@@ -21,9 +20,8 @@ export default Ember.Route.extend({
   },
 
   afterModel(model) {
-    // TODO remove this hack to load the projects once we get the list of ids from the api
-    if (!model.get("isNew")) {
-      return this.store.find("environment", { projectId: model.get("id") });
+    if (model.get("isNew")) {
+      this.transitionTo("dashboard.account.project.settings", model);
     }
   }
 

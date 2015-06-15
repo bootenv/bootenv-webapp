@@ -6,7 +6,7 @@ export default Ember.Route.extend({
     if (params.account_name === "~new") {
       return this.store.createRecord("account");
     } else {
-      return this.store.all("account").filterBy("name", params.account_name).get("firstObject");
+      return this.store.all("account").findBy("name", params.account_name);
     }
   },
 
@@ -21,8 +21,6 @@ export default Ember.Route.extend({
       this.transitionTo("dashboard.account.settings", model);
     } else {
       this.set("session.currentAccountId", model.get("id"));
-      // TODO remove this hack to load the projects once we get the list of ids from the api
-      return this.store.find("project", { accountId: model.get("id") });
     }
   }
 

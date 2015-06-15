@@ -79,13 +79,16 @@ export default Ember.Controller.extend({
     },
 
     changeVariables() {
+      let hasNew = false;
+
       this.get("pairs").forEach((pair) => {
         if (pair.get("value.isNew") && !Ember.isEmpty(pair.get("value.value"))) {
           this.get("model.variables").pushObject(pair.get("value"));
+          hasNew = true;
         }
       });
 
-      if (this.get("model.isDirty")) {
+      if (hasNew || this.get("model.isDirty")) {
         this.get("model").save().catch(handleError);
       }
     },

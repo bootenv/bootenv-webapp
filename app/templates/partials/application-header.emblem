@@ -1,7 +1,7 @@
 / Main Header
 header.main-header
   / Logo
-  a.logo href="index2.html"
+  link-to "dashboard" class="logo"
     / mini logo for sidebar mini 50x50 pixels
     span.logo-mini: img src="assets/images/logo-square-transparent.png" style="height: 50px"
     / logo for regular state and mobile devices
