@@ -4,8 +4,7 @@ import { handleError, confirmDelete } from 'bootenv-webapp/utils/notifications';
 export default Ember.Controller.extend({
 
   goBack() {
-    // FIXME check how to update the url without calling reload (when name changes)
-    this.transitionTo("dashboard.account", this.get("model").reload());
+    this.transitionTo("dashboard.account", this.get("model.name"));
   },
 
   updateUser() {
