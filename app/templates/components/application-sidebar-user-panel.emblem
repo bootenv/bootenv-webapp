@@ -7,7 +7,7 @@ a.user-panel data-toggle="collapse" href="#account-menu" aria-expanded="false" a
     a <i class="fa fa-circle text-success"></i> Active
   i.fa.fa-angle-down.pull-right
 ul.collapse.treeview-menu#account-menu
-  each accounts key="id" as |account|
+  each accounts as |account|
     unless (or account.isNew (eq account.name session.currentAccount.name))
       li: link-to "dashboard.account" account class="user-panel"
         .pull-left.image

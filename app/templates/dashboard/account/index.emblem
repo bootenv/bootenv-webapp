@@ -20,7 +20,7 @@ section.content
                   th Description
                   th Environments
             tbody
-              each model.projects key="id" as |project|
+              each model.projects as |project|
                 tr
                   td
                     lock-icon public=project.public
@@ -28,7 +28,7 @@ section.content
                       = project.name
                   td = project.description
                   td.environments
-                    each project.environments key="@id" as |environment|
+                    each project.environments as |environment|
                       link-to "dashboard.account.project.environment" environment.project environment
                         span.label style="background-color: {{{environment.color}}}; color: {{hex2rgb-fg environment.color}}"
                           = environment.name

@@ -18,7 +18,7 @@ section.content
                   th Value
                   th
             tbody
-              each pairs key="value.id" as |pair|
+              each pairs as |pair|
                 tr
                   td.text-center: lock-icon secret=pair.definition.secret
                   td = pair.definition.name
@@ -54,7 +54,7 @@ section.content
                 th Value
                 th
             tbody
-              each otherPairs key="value.id" as |pair|
+              each otherPairs as |pair|
                 tr
                   td.text-center: lock-icon secret=pair.value.secret
                   td = pair.value.name
@@ -102,7 +102,7 @@ section.content
                 th Date
                 th
             tbody
-              each model.tokens key="id" as |token|
+              each model.tokens as |token|
                 unless token.isNew
                   tr
                     td = token.name

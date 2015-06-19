@@ -15,7 +15,7 @@ aside.main-sidebar
 
         if favorites
           li.header FAVORITES
-          each favorites key="id" as |project|
+          each favorites as |project|
             li: link-to "dashboard.account.project" project
               i.fa.fa-book
               span = project.name

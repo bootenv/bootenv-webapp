@@ -1,14 +1,14 @@
 {
   "name": "bootenv-webapp",
   "dependencies": {
-    "ember": "1.12.1",
+    "ember": "1.13.2",
     "ember-cli-shims": "ember-cli/ember-cli-shims#0.0.3",
-    "ember-data": "1.0.0-beta.19.2",
+    "ember-data": "1.13.2",
     "ember-load-initializers": "ember-cli/ember-load-initializers#0.1.4",
     "ember-resolver": "~0.1.15",
     "jquery": "^2.1.4",
     "loader.js": "ember-cli/loader.js#3.2.1",
-    "ember-simple-auth": "0.8.0-beta.3",
+    "ember-simple-auth": "0.8.0",
     "bootstrap-sass": "~3.3.4",
     "admin-lte": "karthilxg/AdminLTE#master",
     "JavaScript-MD5": "~1.1.0",
