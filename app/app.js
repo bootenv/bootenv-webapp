@@ -14,6 +14,15 @@ App = Ember.Application.extend({
   Resolver: Resolver
 });
 
+var reportError = function(error) {
+  console.log(error);
+};
+
+Ember.onerror = reportError;
+Ember.RSVP.configure('onerror', reportError);
+App.ApplicationRoute = Ember.Route.extend({ actions: { error: reportError } });
+window.onerror = reportError;
+
 loadInitializers(App, config.modulePrefix);
 
 export default App;

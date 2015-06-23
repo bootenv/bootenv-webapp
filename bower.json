@@ -3,7 +3,7 @@
   "dependencies": {
     "ember": "1.13.2",
     "ember-cli-shims": "ember-cli/ember-cli-shims#0.0.3",
-    "ember-data": "1.13.2",
+    "ember-data": "1.13.4",
     "ember-load-initializers": "ember-cli/ember-load-initializers#0.1.4",
     "ember-resolver": "~0.1.15",
     "jquery": "^2.1.4",
@@ -17,7 +17,7 @@
     "pace": "vectart/pace#master",
     "iCheck": "~1.0.2",
     "fastclick": "~1.0.6",
-    "ember-cli-moment-shim": "~0.1.0",
+    "ember-cli-moment-shim": "~0.2.0",
     "objectid.js": "~1.0.0",
     "spectrum": "~1.7.0",
     "bootbox": "~4.4.0",
