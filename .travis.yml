@@ -1,7 +1,7 @@
 ---
 language: node_js
 node_js:
-  - "iojs"
+  - "iojs-2.4"
 
 sudo: false
 

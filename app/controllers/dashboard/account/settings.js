@@ -3,6 +3,10 @@ import { handleError, confirmDelete } from 'bootenv-webapp/utils/notifications';
 
 export default Ember.Controller.extend({
 
+  baseUrl: function() {
+    return window.location.origin;
+  }.property(),
+
   goBack() {
     this.transitionTo("dashboard.account", this.get("model.name"));
   },

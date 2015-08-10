@@ -1,4 +1,5 @@
 fm-field type="text" value=model.name label="Username *" required=true
+.account-url {{baseUrl}}/<span>{{model.name}}</span>
 if model.personal
   fm-field type="text" value=session.currentUser.fullName label="Full Name"
 else
